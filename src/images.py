@@ -51,12 +51,58 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
             crop.save(crop_path)
             print(f"Cropped image saved to {crop_path}")
 
-current_working_directory = os.getcwd()
-print(f"Current working directory: {current_working_directory}")
-relative_path = os.path.join(current_working_directory, 'data')
-# Example usage
-image_path = os.path.join(relative_path, 'flora-screenshot.png')
-output_folder = os.path.join(relative_path, 'flora')
+def crop_images_in_folder(input_folder, output_folder, origin, cell_width, cell_height, grid_size, crop_size):
+
+    # Ensure the output folder exists
+    os.makedirs(output_folder, exist_ok=True)
+
+    # Iterate over each image in the input folder
+    for image_name in os.listdir(input_folder):
+        image_path = os.path.join(input_folder, image_name)
+        if not image_name.lower().endswith(('.png')):
+            continue  # Skip non-image files
+
+        image = Image.open(image_path)
+        num_rows, num_cols = grid_size
+        x_origin, y_origin = origin
+        
+        # Draw the grid for debug purposes
+        base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
+        for row in range(num_rows):
+            for col in range(num_cols):
+                x0 = x_origin + col * cell_width
+                y0 = y_origin + row * cell_height
+                x1 = x0 + cell_width
+                y1 = y0 + cell_height
+                ImageDraw.Draw(image).rectangle([x0, y0, x1, y1], outline="red")
+        
+        debug_image_path = f"{base_name}_debug_grid.png"
+        image.save(debug_image_path)
+        print(f"Debug image saved to {debug_image_path}")
+
+        # Adjusting for square cutouts
+        # Determine the square cutout size, ensuring it's smaller and central in the cell
+        cutout_size = min(crop_size, cell_width, cell_height)
+        x_offset = (cell_width - cutout_size) // 2
+        y_offset = (cell_height - cutout_size) // 2
+
+        # Crop and save each cell
+        for row in range(num_rows):
+            for col in range(num_cols):
+                x0 = x_origin + col * cell_width + x_offset
+                y0 = y_origin + row * cell_height + y_offset
+                x1 = x0 + cutout_size
+                y1 = y0 + cutout_size
+
+                crop = image.crop((x0, y0, x1, y1))
+                base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
+                crop_path = os.path.join(output_folder, f"{base_name}_flora_{row}_{col}.png")
+                crop.save(crop_path)
+                print(f"Cropped image saved to {crop_path}")
+
+directory = os.getcwd()
+flora_image_path = os.path.join(directory, 'data/flora/screenshots/flora-screenshot.png')
+flora_output_folder = os.path.join(directory, 'data/flora/cropped')
 origin = (237, 325)  # Grid origin coordinates
 cell_width = 210  # Cell width
 cell_height = 217
@@ -65,4 +111,16 @@ grid_size = (5, 10)  # Grid size as rows x columns
 crop_size = 210  # Desired square cutout size, adjust based on your needs
 
 # Ensure the parameters are correctly set to your needs before running
-crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_folder, crop_size)
+crop_grid(flora_image_path, origin, cell_width, cell_height, grid_size, flora_output_folder, crop_size)
+
+input_folder = 'data/food/screenshots'  # Folder where the screenshots are stored
+output_folder = 'data/food/cropped'  # Folder where the cropped images will be saved
+origin = (71, 440)  # Adjust as per your layout
+cell_width = 723/3  # Cell width
+cell_height = 452/2  # Cell height
+grid_size = (2, 3)  # Adjust based on your grid (columns, rows)
+crop_size = 10  # Desired crop size, adjust as needed
+
+# Run the function
+crop_images_in_folder(input_folder, output_folder, origin, cell_width, cell_height, grid_size, crop_size)
+
