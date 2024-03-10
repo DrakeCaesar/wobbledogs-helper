@@ -130,7 +130,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
 
 directory = os.getcwd()
 flora_image_path = os.path.join(directory, 'data/flora/screenshots/flora-screenshot.png')
-flora_output_folder = os.path.join(directory, 'data/flora/cropped')
+flora_output_folder = os.path.join(directory, 'data/flora/images')
 origin = (237, 325)  # Grid origin coordinates
 cell_width = 210  # Cell width
 cell_height = 217
@@ -142,7 +142,7 @@ crop_size = 210  # Desired square cutout size, adjust based on your needs
 crop_grid(flora_image_path, origin, cell_width, cell_height, grid_size, flora_output_folder, crop_size)
 
 input_folder = os.path.join(directory, 'data/food/screenshots') 
-output_folder = os.path.join(directory, 'data/food/cropped') 
+output_folder = os.path.join(directory, 'data/food/images') 
 low_variance_output_folder = os.path.join(directory, 'data/food/low_variance_crops')  # Folder for low variance images
 duplicate_folder = os.path.join(directory, 'data/food/duplicates')  # Folder for duplicate images
 origin = (60, 415)  # Adjust as per your layout
