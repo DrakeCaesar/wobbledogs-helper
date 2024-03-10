@@ -35,7 +35,7 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
             y1 = y0 + cell_height
             draw.rectangle([x0, y0, x1, y1], outline="red")
     
-    debug_image_path = f"{output_folder}_debug_grid.png"
+    # debug_image_path = f"{output_folder}_debug_grid.png"
     # image.save(debug_image_path)
     # print(f"Debug image saved to {debug_image_path}")
     
@@ -68,14 +68,18 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
             crop.save(crop_path)
             # print(f"Cropped image saved to {crop_path}")
 
-def crop_grid_from_folder(source_folder, output_folder, low_variance_output_folder, origin, cell_width, cell_height, grid_size, crop_size):
-    # Ensure both output folders exist
+def crop_grid_from_folder(source_folder, output_folder, low_variance_output_folder, duplicates_folder, origin, cell_width, cell_height, grid_size, crop_size):
+    # Ensure output and special folders exist
     os.makedirs(output_folder, exist_ok=True)
     os.makedirs(low_variance_output_folder, exist_ok=True)
+    os.makedirs(duplicates_folder, exist_ok=True)
+    # Clear folders at the beginning
     clear_folder(output_folder)
     clear_folder(low_variance_output_folder)
-    
-    # List all images in the source folder
+    clear_folder(duplicates_folder)
+
+    variances_encountered = []
+
     for image_name in os.listdir(source_folder):
         if image_name.lower().endswith(('.png', '.jpg', '.jpeg')):
             image_path = os.path.join(source_folder, image_name)
@@ -83,56 +87,34 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
             draw = ImageDraw.Draw(image)
             num_rows, num_cols = grid_size
             x_origin, y_origin = origin
-            
-            # Adjusting for square cutouts
-            cutout_size = min(crop_size, cell_width, cell_height)
-            x_offset = (cell_width - cutout_size) // 2
-            y_offset = (cell_height - cutout_size) // 2
 
-            # Debug image with rectangles
             for row in range(num_rows):
                 for col in range(num_cols):
-                    x0 = x_origin + col * cell_width
-                    y0 = y_origin + row * cell_height
-                    x1 = x0 + cell_width
-                    y1 = y0 + cell_height
-                    draw.rectangle([x0, y0, x1, y1], outline="red")
-
-            # Save the debug image
-            # debug_image_path = os.path.join(output_folder, f"{os.path.splitext(image_name)[0]}_debug_grid.png")
-            # image.save(debug_image_path)
-            # print(f"Debug image saved to {debug_image_path}")
-
-            # Reload image without debug drawings for cropping
-            image = Image.open(image_path)
-
-            # Crop and save each cell
-            for row in range(num_rows):
-                for col in range(num_cols):
-                    x0 = x_origin + col * cell_width + x_offset
-                    y0 = y_origin + row * cell_height + y_offset
-                    x1 = x0 + cutout_size
-                    y1 = y0 + cutout_size
+                    x0 = x_origin + col * cell_width + (cell_width - crop_size) // 2
+                    y0 = y_origin + row * cell_height + (cell_height - crop_size) // 2
+                    x1 = x0 + crop_size
+                    y1 = y0 + crop_size
 
                     crop = image.crop((x0, y0, x1, y1))
                     stats = ImageStat.Stat(crop)
-                    base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
-
-                    # Check for flat color by examining the variance
                     average_variance = sum(stats.var) / len(stats.var)
-                    variance_str = f"{average_variance:.0f}"  # Convert to string, rounding to nearest integer
+                    variance_str = f"{average_variance:.0f}"
                     variance_number = int(variance_str)
 
-                    variance_upper_bound = 2500
-                    variance_lower_bound = 2400
-                    if variance_number > 10 and ( variance_number > variance_upper_bound or variance_number < variance_lower_bound ):
-                        crop_path = os.path.join(output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
-                        crop.save(crop_path)
-                        # print(f"Cropped image saved to {crop_path}")
-                    else:
+                    base_name = os.path.splitext(image_name)[0]
+                    if variance_number < 10 or (variance_number > 2400 and variance_number < 2500):
                         low_var_path = os.path.join(low_variance_output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
                         crop.save(low_var_path)
-                        # print(f"Image with low variance saved to {low_var_path} for review.")
+                    else:
+                        # Check for near-duplicate variances
+                        if any(abs(variance_number - v) <= 5 for v in variances_encountered):
+                            duplicate_path = os.path.join(duplicates_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
+                            crop.save(duplicate_path)
+                        else:
+                            variances_encountered.append(variance_number)
+                            crop_path = os.path.join(output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
+                            crop.save(crop_path)
+
 
 
 directory = os.getcwd()
@@ -151,9 +133,10 @@ crop_grid(flora_image_path, origin, cell_width, cell_height, grid_size, flora_ou
 input_folder = os.path.join(directory, 'data/food/screenshots') 
 output_folder = os.path.join(directory, 'data/food/cropped') 
 low_variance_output_folder = os.path.join(directory, 'data/food/low_variance_crops')  # Folder for low variance images
+duplicate_folder = os.path.join(directory, 'data/food/duplicates')  # Folder for duplicate images
 origin = (60, 415)  # Adjust as per your layout
 cell_width = 247  # Cell width
 cell_height = 247  # Cell height
 grid_size = (2, 3)  # Adjust based on your grid (columns, rows)
 crop_size = 235  # Desired crop size, adjust as needed
-crop_grid_from_folder(input_folder, output_folder, low_variance_output_folder, origin, cell_width, cell_height, grid_size, crop_size)
+crop_grid_from_folder(input_folder, output_folder, low_variance_output_folder, duplicate_folder, origin, cell_width, cell_height, grid_size, crop_size)
