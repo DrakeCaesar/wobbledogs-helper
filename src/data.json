@@ -1,0 +1,26 @@
+{
+  "foods": [
+    {
+      "name": "FoodName1",
+      "image": "path/to/image1.png",
+      "source": "FoodSource1",
+      "gutFlora": ["GutFloraName1", "GutFloraName2"]
+    }
+  ],
+  "gutFlora": [
+    {
+      "name": "GutFloraName1",
+      "image": "path/to/image2.png",
+      "shinyImage": "path/to/shinyImage2.png",
+      "foods": ["FoodName1", "FoodName3"],
+      "traits": ["TraitName1", "TraitName2"]
+    }
+  ],
+  "traits": [
+    {
+      "name": "TraitName1",
+      "gutFlora": ["GutFloraName1", "GutFloraName3"],
+      "foods": ["FoodName1", "FoodName2"]
+    }
+  ]
+}
