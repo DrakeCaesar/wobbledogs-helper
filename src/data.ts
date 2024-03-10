@@ -1,8 +1,7 @@
 interface Food {
   name: string;
   image: string;
-  source: string;
-  gutFlora: string[];
+  source?: string;
 }
 
 interface Trait {
@@ -12,48 +11,58 @@ interface Trait {
 interface GutFlora {
   name: string;
   image: string;
-  shinyImage: string;
   foods: string[];
   traits: Trait[];
+  rarities: number[];
 }
 
 interface TraitDetail {
   name: string;
-  gutFlora: string[];
-  foods: string[];
 }
+const foodUnknown: Food = {
+  name: "Unknown",
+  image: "unknown",
+};
+const foodAlienFruit: Food = {
+  name: "Alien Fruit",
+  image: "alien_fruit",
+};
+const foods: Food[] = [foodUnknown, foodAlienFruit];
 
-const foods: Food[] = [
-  {
-    name: "FoodName1",
-    image: "path/to/image1.png",
-    source: "FoodSource1",
-    gutFlora: ["GutFloraName1", "GutFloraName2"],
-  },
-];
+const traitUnknown: Trait = { name: "Unknown" };
+const traitLongLegs: Trait = { name: "Long Legs" };
+const traitOrangeColoration: Trait = { name: "Orange Coloration" };
+
+const traits: TraitDetail[] = [traitLongLegs, traitOrangeColoration];
 
 const gutFlora: GutFlora[] = [
   {
     name: "0x1042",
     image: "flora_0_0",
-    shinyImage: "path/to/shinyImage2.png",
     foods: ["Chip", "Nutritional Pellet"],
-    traits: [
-      {
-        name: "Long Legs",
-      },
-      {
-        name: "Orange Coloration",
-      },
-    ],
+    traits: [traitLongLegs, traitOrangeColoration], // Directly reference the trait objects
+    rarities: [1, 1],
   },
-];
-
-const traits: TraitDetail[] = [
   {
-    name: "TraitName1",
-    gutFlora: ["GutFloraName1", "GutFloraName3"],
-    foods: ["FoodName1", "FoodName2"],
+    name: "???? ???????",
+    image: "flora_0_1",
+    foods: [],
+    traits: [],
+    rarities: [],
+  },
+  {
+    name: "Bacillus Vitus",
+    image: "flora_0_2",
+    foods: [],
+    traits: [],
+    rarities: [],
+  },
+  {
+    name: "Bacto Bacto",
+    image: "flora_0_3",
+    foods: [],
+    traits: [],
+    rarities: [],
   },
 ];
 
