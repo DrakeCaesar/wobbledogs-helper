@@ -1,7 +1,24 @@
 from PIL import Image, ImageDraw
 import os
+import shutil
+
+def clear_folder(folder_path):
+    # Check if the folder exists
+    if os.path.exists(folder_path):
+        # Remove all files and subfolders in the folder
+        for filename in os.listdir(folder_path):
+            file_path = os.path.join(folder_path, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print(f"Failed to delete {file_path}. Reason: {e}")
 
 def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_folder, crop_size):
+    os.makedirs(output_folder, exist_ok=True)
+    clear_folder(output_folder)
     image = Image.open(image_path)
     draw = ImageDraw.Draw(image)
     num_rows, num_cols = grid_size
@@ -54,9 +71,15 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
 from PIL import Image, ImageDraw, ImageStat
 import os
 
-def crop_grid_from_folder(source_folder, output_folder, origin, cell_width, cell_height, grid_size, crop_size):
-    # Ensure the output folder exists
+from PIL import Image, ImageDraw, ImageStat
+import os
+
+def crop_grid_from_folder(source_folder, output_folder, low_variance_output_folder, origin, cell_width, cell_height, grid_size, crop_size):
+    # Ensure both output folders exist
     os.makedirs(output_folder, exist_ok=True)
+    os.makedirs(low_variance_output_folder, exist_ok=True)
+    clear_folder(output_folder)
+    clear_folder(low_variance_output_folder)
     
     # List all images in the source folder
     for image_name in os.listdir(source_folder):
@@ -82,9 +105,9 @@ def crop_grid_from_folder(source_folder, output_folder, origin, cell_width, cell
                     draw.rectangle([x0, y0, x1, y1], outline="red")
 
             # Save the debug image
-            debug_image_path = os.path.join(output_folder, f"{os.path.splitext(image_name)[0]}_debug_grid.png")
-            image.save(debug_image_path)
-            print(f"Debug image saved to {debug_image_path}")
+            # debug_image_path = os.path.join(output_folder, f"{os.path.splitext(image_name)[0]}_debug_grid.png")
+            # image.save(debug_image_path)
+            # print(f"Debug image saved to {debug_image_path}")
 
             # Reload image without debug drawings for cropping
             image = Image.open(image_path)
@@ -99,15 +122,23 @@ def crop_grid_from_folder(source_folder, output_folder, origin, cell_width, cell
 
                     crop = image.crop((x0, y0, x1, y1))
                     stats = ImageStat.Stat(crop)
+                    base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
 
                     # Check for flat color by examining the variance
-                    if max(stats.var) > 1:  # Adjust this threshold as needed
-                        base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
-                        crop_path = os.path.join(output_folder, f"{base_name}_flora_{row}_{col}.png")
+                    average_variance = sum(stats.var) / len(stats.var)
+                    variance_str = f"{average_variance:.0f}"  # Convert to string, rounding to nearest integer
+                    variance_number = int(variance_str)
+
+                    variance_upper_bound = 2500
+                    variance_lower_bound = 2400
+                    if variance_number > 10 and ( variance_number > variance_upper_bound or variance_number < variance_lower_bound ):
+                        crop_path = os.path.join(output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
                         crop.save(crop_path)
-                        print(f"Cropped image saved to {crop_path}")
+                        # print(f"Cropped image saved to {crop_path}")
                     else:
-                        print(f"Skipped saving {base_name}_flora_{row}_{col}.png due to flat color.")
+                        low_var_path = os.path.join(low_variance_output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
+                        crop.save(low_var_path)
+                        # print(f"Image with low variance saved to {low_var_path} for review.")
 
 
 directory = os.getcwd()
@@ -123,18 +154,12 @@ crop_size = 210  # Desired square cutout size, adjust based on your needs
 # Ensure the parameters are correctly set to your needs before running
 crop_grid(flora_image_path, origin, cell_width, cell_height, grid_size, flora_output_folder, crop_size)
 
-input_folder = os.path.join(directory, 'data/food/screenshots')  # Folder where the screenshots are stored
-output_folder = os.path.join(directory, 'data/food/cropped')  # Folder where the cropped images will be saved
-
-print(input_folder)
-print(output_folder)
-
-origin = (71, 440)  # Adjust as per your layout
-cell_width = 241  # Cell width
-cell_height = 226  # Cell height
+input_folder = os.path.join(directory, 'data/food/screenshots') 
+output_folder = os.path.join(directory, 'data/food/cropped') 
+low_variance_output_folder = os.path.join(directory, 'data/food/low_variance_crops')  # Folder for low variance images
+origin = (60, 415)  # Adjust as per your layout
+cell_width = 247  # Cell width
+cell_height = 247  # Cell height
 grid_size = (2, 3)  # Adjust based on your grid (columns, rows)
-crop_size = 226  # Desired crop size, adjust as needed
-
-# Run the function
-crop_grid_from_folder(input_folder, output_folder, origin, cell_width, cell_height, grid_size, crop_size)
-
+crop_size = 235  # Desired crop size, adjust as needed
+crop_grid_from_folder(input_folder, output_folder, low_variance_output_folder, origin, cell_width, cell_height, grid_size, crop_size)
