@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageStat
 import os
 import shutil
 
@@ -67,12 +67,6 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
             crop_path = os.path.join(output_folder, f"flora_{row}_{col}.png")
             crop.save(crop_path)
             # print(f"Cropped image saved to {crop_path}")
-
-from PIL import Image, ImageDraw, ImageStat
-import os
-
-from PIL import Image, ImageDraw, ImageStat
-import os
 
 def crop_grid_from_folder(source_folder, output_folder, low_variance_output_folder, origin, cell_width, cell_height, grid_size, crop_size):
     # Ensure both output folders exist
