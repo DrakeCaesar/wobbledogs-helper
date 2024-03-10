@@ -80,6 +80,50 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
 
     variances_encountered = []
 
+    food_item_map = {
+        "flora-0-0-food-0-0": "Chip",
+        "flora-0-0-food-0-1": "Nutritional Pellet",
+        "flora-0-3-food-0-0": "Apple Slice",
+        "flora-0-3-food-0-2": "Cut Fruit",
+        "flora-0-4-food-0-0": "Baby Tooth",
+        "flora-0-5-food-0-0": "Wobbledog Body",
+        "flora-0-5-food-0-1": "Wobbledog Head",
+        "flora-0-5-food-0-2": "Wobbledog Leg",
+        "flora-0-8-food-0-0": "Garlic Bread",
+        "flora-0-8-food-0-1": "Pancake",
+        "flora-1-0-food-0-0": "Burrito",
+        "flora-1-0-food-0-1": "Coconut",
+        "flora-1-0-food-1-0": "Cheese Ball",
+        "flora-1-4-food-0-1": "Empty Coccoon",
+        "flora-1-6-food-0-0": "Dirt Clump",
+        "flora-1-7-food-0-0": "Ham Slider",
+        "flora-1-7-food-0-1": "Moon Cheese",
+        "flora-1-8-food-0-0": "Dehydrated Treat",
+        "flora-2-0-food-0-1": "Fruit Cake",
+        "flora-2-1-food-0-0": "Candy Cane",
+        "flora-2-5-food-0-1": "Alien Fruit",
+        "flora-2-7-food-0-0": "Lasagna",
+        "flora-2-7-food-0-1": "Pizza Bagel",
+        "flora-2-7-food-0-2": "Onion Ring",
+        "flora-3-3-food-0-2": "Chicken Nugget",
+        "flora-3-4-food-0-0": "French Fry",
+        "flora-3-9-food-0-0": "Banana",
+        "flora-4-0-food-0-0": "Honeycomb",
+        "flora-4-1-food-0-0": "Half-Eaten Food",
+        "flora-4-1-food-0-1": "Poop",
+        "flora-4-3-food-0-0": "Snowball"
+    }
+
+    def get_food_name(base_name, row, col):
+        # Generate the key to lookup in the map
+        key = f"{base_name}-food-{row}-{col}"
+        # Find and return the corresponding food item name, defaulting to the key if not found
+        
+        # debug output:
+        print(f"Looking up {key} in the map, found: {food_item_map.get(key, key)}")
+        
+        return food_item_map.get(key, key)
+
     for image_name in os.listdir(source_folder):
         if image_name.lower().endswith(('.png', '.jpg', '.jpeg')):
             image_path = os.path.join(source_folder, image_name)
@@ -99,6 +143,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                     current_variances = stats.var  # Tuple of variances for each color channel
 
                     base_name = os.path.splitext(image_name)[0]
+                    food_name = get_food_name(base_name, row, col)
 
                     # Function to check if current variances are within 5 points of any in variances_encountered
                     def is_duplicate(variances, encountered_variances):
@@ -111,6 +156,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                     
                     # filename = f"{variance_str}-{base_name}-food-{row}-{col}.png"
                     filename = f"{base_name}-food-{row}-{col}.png"
+                    new_filename = f"{food_name}.png"
                     
 
                     if variance_str < 10 or (2400 < variance_str < 2500):
@@ -122,7 +168,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                             crop.save(duplicate_path)
                         else:
                             variances_encountered.append(current_variances)
-                            crop_path = os.path.join(output_folder, filename)
+                            crop_path = os.path.join(output_folder, new_filename)
                             crop.save(crop_path)
 
 
