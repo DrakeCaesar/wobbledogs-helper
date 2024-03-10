@@ -84,7 +84,6 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         if image_name.lower().endswith(('.png', '.jpg', '.jpeg')):
             image_path = os.path.join(source_folder, image_name)
             image = Image.open(image_path)
-            draw = ImageDraw.Draw(image)
             num_rows, num_cols = grid_size
             x_origin, y_origin = origin
 
@@ -97,23 +96,35 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
 
                     crop = image.crop((x0, y0, x1, y1))
                     stats = ImageStat.Stat(crop)
-                    average_variance = sum(stats.var) / len(stats.var)
-                    variance_str = f"{average_variance:.0f}"
-                    variance_number = int(variance_str)
+                    current_variances = stats.var  # Tuple of variances for each color channel
 
                     base_name = os.path.splitext(image_name)[0]
-                    if variance_number < 10 or (variance_number > 2400 and variance_number < 2500):
-                        low_var_path = os.path.join(low_variance_output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
+
+                    # Function to check if current variances are within 5 points of any in variances_encountered
+                    def is_duplicate(variances, encountered_variances):
+                        for encountered in encountered_variances:
+                            if all(abs(v - e) <= 10 for v, e in zip(variances, encountered)):
+                                return True
+                        return False
+                   # sum of variances as numbers
+                    variance_str = int(sum(current_variances)/3)
+                    
+                    # filename = f"{variance_str}-{base_name}-food-{row}-{col}.png"
+                    filename = f"{base_name}-food-{row}-{col}.png"
+                    
+
+                    if variance_str < 10 or (2400 < variance_str < 2500):
+                        low_var_path = os.path.join(low_variance_output_folder, filename)
                         crop.save(low_var_path)
                     else:
-                        # Check for near-duplicate variances
-                        if any(abs(variance_number - v) <= 5 for v in variances_encountered):
-                            duplicate_path = os.path.join(duplicates_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
+                        if is_duplicate(current_variances, variances_encountered):
+                            duplicate_path = os.path.join(duplicates_folder, filename)
                             crop.save(duplicate_path)
                         else:
-                            variances_encountered.append(variance_number)
-                            crop_path = os.path.join(output_folder, f"{variance_str}-{base_name}-flora-{row}-{col}.png")
+                            variances_encountered.append(current_variances)
+                            crop_path = os.path.join(output_folder, filename)
                             crop.save(crop_path)
+
 
 
 
