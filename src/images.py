@@ -51,14 +51,12 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
             crop.save(crop_path)
             # print(f"Cropped image saved to {crop_path}")
 
+from PIL import Image, ImageDraw, ImageStat
+import os
+
 def crop_grid_from_folder(source_folder, output_folder, origin, cell_width, cell_height, grid_size, crop_size):
     # Ensure the output folder exists
-    
-    print(source_folder)
-    print(output_folder)
-    
-    
-    # os.makedirs(output_folder, exist_ok=True)
+    os.makedirs(output_folder, exist_ok=True)
     
     # List all images in the source folder
     for image_name in os.listdir(source_folder):
@@ -69,42 +67,48 @@ def crop_grid_from_folder(source_folder, output_folder, origin, cell_width, cell
             num_rows, num_cols = grid_size
             x_origin, y_origin = origin
             
+            # Adjusting for square cutouts
+            cutout_size = min(crop_size, cell_width, cell_height)
+            x_offset = (cell_width - cutout_size) // 2
+            y_offset = (cell_height - cutout_size) // 2
+
             # Debug image with rectangles
             for row in range(num_rows):
                 for col in range(num_cols):
-                    # Adjusting for different grid configurations, if necessary
-                    # Here you might add conditions if grids vary between images
                     x0 = x_origin + col * cell_width
                     y0 = y_origin + row * cell_height
                     x1 = x0 + cell_width
                     y1 = y0 + cell_height
                     draw.rectangle([x0, y0, x1, y1], outline="red")
-            
+
             # Save the debug image
             debug_image_path = os.path.join(output_folder, f"{os.path.splitext(image_name)[0]}_debug_grid.png")
-            # image.save(debug_image_path)
-            # print(f"Debug image saved to {debug_image_path}")
-            
+            image.save(debug_image_path)
+            print(f"Debug image saved to {debug_image_path}")
 
-        # Adjusting for square cutouts
-        # Determine the square cutout size, ensuring it's smaller and central in the cell
-        cutout_size = min(crop_size, cell_width, cell_height)
-        x_offset = (cell_width - cutout_size) // 2
-        y_offset = (cell_height - cutout_size) // 2
+            # Reload image without debug drawings for cropping
+            image = Image.open(image_path)
 
-        # Crop and save each cell
-        for row in range(num_rows):
-            for col in range(num_cols):
-                x0 = x_origin + col * cell_width + x_offset
-                y0 = y_origin + row * cell_height + y_offset
-                x1 = x0 + cutout_size
-                y1 = y0 + cutout_size
+            # Crop and save each cell
+            for row in range(num_rows):
+                for col in range(num_cols):
+                    x0 = x_origin + col * cell_width + x_offset
+                    y0 = y_origin + row * cell_height + y_offset
+                    x1 = x0 + cutout_size
+                    y1 = y0 + cutout_size
 
-                crop = image.crop((x0, y0, x1, y1))
-                base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
-                crop_path = os.path.join(output_folder, f"{base_name}_flora_{row}_{col}.png")
-                crop.save(crop_path)
-                print(f"Cropped image saved to {crop_path}")
+                    crop = image.crop((x0, y0, x1, y1))
+                    stats = ImageStat.Stat(crop)
+
+                    # Check for flat color by examining the variance
+                    if max(stats.var) > 1:  # Adjust this threshold as needed
+                        base_name = os.path.splitext(image_name)[0]  # Extract base name of the file
+                        crop_path = os.path.join(output_folder, f"{base_name}_flora_{row}_{col}.png")
+                        crop.save(crop_path)
+                        print(f"Cropped image saved to {crop_path}")
+                    else:
+                        print(f"Skipped saving {base_name}_flora_{row}_{col}.png due to flat color.")
+
 
 directory = os.getcwd()
 flora_image_path = os.path.join(directory, 'data/flora/screenshots/flora-screenshot.png')
