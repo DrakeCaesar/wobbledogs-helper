@@ -175,3 +175,4 @@ export const foods: Food[] = [
   poop,
   snowball,
 ];
+export default foods;
