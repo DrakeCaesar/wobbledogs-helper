@@ -1,6 +1,6 @@
 import * as effect from "./effect";
 import * as food from "./food";
-interface Flora {
+export interface Flora {
   name: string;
   image: string;
   description: string;
