@@ -1,22 +1,18 @@
 #app {
   display: flex;
-  flex-wrap: nowrap;
 }
 
 .grid-container {
-  flex: 3; /* Takes 3 parts of the space */
+  flex: 3;
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(100px, 1fr)
-  ); /* Adjust based on your preference */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
   padding: 10px;
-  overflow-y: auto; /* In case of overflow */
+  height: min-content;
 }
 
 .flora-details {
-  flex: 1; /* Takes 1 part of the space */
+  flex: 1;
   padding: 10px;
   height: 100vh;
   overflow-y: auto;
@@ -26,13 +22,11 @@
 .grid-item {
   position: relative;
   cursor: pointer;
+  height: max-content;
 }
 
 .grid-item > img {
   max-width: 100%;
-  max-height: 150px; /* Adjust based on your preference */
-  object-fit: contain; /* This will ensure the entire image fits without cropping */
-  display: block;
 }
 .grid-item:hover .name {
   display: block;
