@@ -39,7 +39,33 @@ function displayFloraInfo(floraName: string) {
   );
 }
 
-// Similar functions can be created for displaying food and effect information
+function populateFloraGrid() {
+  const gridContainer = document.getElementById("floraGrid");
+  const detailsContainer = document.getElementById("floraDetails"); // Get the details container
+  if (!gridContainer || !detailsContainer) return;
 
-// Example usage
-displayFloraInfo("dirt");
+  flora.floras.forEach((floraItem) => {
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item");
+
+    const img = document.createElement("img");
+    img.src = `data/flora/images/${floraItem.image}.png`;
+    img.alt = floraItem.name;
+
+    const nameOverlay = document.createElement("div");
+    nameOverlay.classList.add("name");
+    nameOverlay.textContent = floraItem.name; // Display name on hover
+
+    gridItem.appendChild(img);
+    gridItem.appendChild(nameOverlay);
+    gridContainer.appendChild(gridItem);
+
+    // Add click event listener to populate and show the details pane
+    gridItem.addEventListener("click", () => {
+      detailsContainer.innerHTML = `<h2>${floraItem.name}</h2><p>${floraItem.description}</p>`;
+      // Optionally, display related foods and effects here
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", populateFloraGrid);

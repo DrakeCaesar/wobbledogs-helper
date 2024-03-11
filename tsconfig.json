@@ -1,17 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "es6",
+    "module": "esnext",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-
-    // Add these lines
-    "rootDir": "./src",
-    "outDir": "./dist"
+    "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
