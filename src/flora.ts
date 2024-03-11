@@ -1,6 +1,6 @@
 import * as effect from "./effect";
 import * as food from "./food";
-interface GutFlora {
+interface flora {
   name: string;
   image: string;
   description: string;
@@ -14,7 +14,7 @@ const triangle = 2;
 const diamond = 3;
 const star = 4;
 
-export const x1042: GutFlora = {
+export const x1042: flora = {
   name: "0x1042",
   image: "flora_0_0",
   description:
@@ -24,7 +24,7 @@ export const x1042: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const flora01: GutFlora = {
+export const flora01: flora = {
   name: "???? ???????",
   image: "flora_0_1",
   description: "No data available.",
@@ -33,7 +33,7 @@ export const flora01: GutFlora = {
   rarities: [circle],
 };
 
-export const bacillusVitus: GutFlora = {
+export const bacillusVitus: flora = {
   name: "Bacillus Vitus",
   image: "flora_0_2",
   description: "A sun-faded flora that looks like it's falling apart from age.",
@@ -42,7 +42,7 @@ export const bacillusVitus: GutFlora = {
   rarities: [circle],
 };
 
-export const bactoBacto: GutFlora = {
+export const bactoBacto: flora = {
   name: "Bacto Bacto",
   image: "flora_0_3",
   description: "Double the flora, double the fun.",
@@ -57,7 +57,7 @@ export const bactoBacto: GutFlora = {
   rarities: [diamond, circle],
 };
 
-export const bactocalcia: GutFlora = {
+export const bactocalcia: flora = {
   name: "Bactocalcia",
   image: "flora_0_4",
   description: "Dense, dried, and fortified.",
@@ -66,7 +66,7 @@ export const bactocalcia: GutFlora = {
   rarities: [circle, circle, triangle],
 };
 
-export const canemLabo: GutFlora = {
+export const canemLabo: flora = {
   name: "Canem Labo",
   image: "flora_0_5",
   description: "A flora unique to the Wobbledog species.",
@@ -81,7 +81,7 @@ export const canemLabo: GutFlora = {
   rarities: [circle],
 };
 
-export const flora06: GutFlora = {
+export const flora06: flora = {
   name: "???? ??????????",
   image: "flora_0_6",
   description: "No data available.",
@@ -90,7 +90,7 @@ export const flora06: GutFlora = {
   rarities: [circle, circle, diamond],
 };
 
-export const caseusBacto: GutFlora = {
+export const caseusBacto: flora = {
   name: "Caseus Bacto",
   image: "flora_0_7",
   description: "Really wanna chomp down on this thing.",
@@ -99,7 +99,7 @@ export const caseusBacto: GutFlora = {
   rarities: [circle, circle, circle],
 };
 
-export const caudiCaudi: GutFlora = {
+export const caudiCaudi: flora = {
   name: "Caudi Caudi",
   image: "flora_0_8",
   description:
@@ -109,7 +109,7 @@ export const caudiCaudi: GutFlora = {
   rarities: [circle],
 };
 
-export const flora09: GutFlora = {
+export const flora09: flora = {
   name: "??????????",
   image: "flora_0_9",
   description: "No data available.",
@@ -118,7 +118,7 @@ export const flora09: GutFlora = {
   rarities: [circle, circle, circle],
 };
 
-export const clisotriumLatriphilius: GutFlora = {
+export const clisotriumLatriphilius: flora = {
   name: "Clisotrium Latriphilius",
   image: "flora_1_0",
   description:
@@ -128,7 +128,7 @@ export const clisotriumLatriphilius: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const flora11: GutFlora = {
+export const flora11: flora = {
   name: "??????????",
   image: "flora_1_1",
   description: "No data available.",
@@ -137,7 +137,7 @@ export const flora11: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const contrarialius: GutFlora = {
+export const contrarialius: flora = {
   name: "Contrarialius",
   image: "flora_2_2",
   description: "Sort of hard to pronounce, but that's not really its fault.",
@@ -146,7 +146,7 @@ export const contrarialius: GutFlora = {
   rarities: [triangle, circle],
 };
 
-export const flora13: GutFlora = {
+export const flora13: flora = {
   name: "??????????",
   image: "flora_1_3",
   description: "No data available.",
@@ -155,7 +155,7 @@ export const flora13: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const crysalia: GutFlora = {
+export const crysalia: flora = {
   name: "Crysalia",
   image: "flora_1_4",
   description: "A flora found in the cocoon drippings.",
@@ -164,7 +164,7 @@ export const crysalia: GutFlora = {
   rarities: [star, circle],
 };
 
-export const candidaNeutralia: GutFlora = {
+export const candidaNeutralia: flora = {
   name: "Candida Neutralia",
   image: "flora_1_5",
   description: "A standard flora found in nearly all dog-based lifeforms.",
@@ -173,7 +173,7 @@ export const candidaNeutralia: GutFlora = {
   rarities: [circle],
 };
 
-export const dirt: GutFlora = {
+export const dirt: flora = {
   name: "Dirt",
   image: "flora_1_6",
   description: "Seriously, it's just dirt.",
@@ -182,7 +182,7 @@ export const dirt: GutFlora = {
   rarities: [triangle],
 };
 
-export const dropilia: GutFlora = {
+export const dropilia: flora = {
   name: "Dropilia",
   image: "flora_1_7",
   description:
@@ -192,7 +192,7 @@ export const dropilia: GutFlora = {
   rarities: [triangle, circle],
 };
 
-export const ectobacter: GutFlora = {
+export const ectobacter: flora = {
   name: "Ectobacter",
   image: "flora_1_8",
   description: "It might hurt to step on this flora if it wasn't so small.",
@@ -201,7 +201,7 @@ export const ectobacter: GutFlora = {
   rarities: [triangle, circle, circle],
 };
 
-export const flora19: GutFlora = {
+export const flora19: flora = {
   name: "????????????",
   image: "flora_1_9",
   description: "No data available.",
@@ -210,7 +210,7 @@ export const flora19: GutFlora = {
   rarities: [circle, circle, diamond],
 };
 
-export const enteria: GutFlora = {
+export const enteria: flora = {
   name: "Enteria",
   image: "flora_2_0",
   description: "Vaguely paw-shaped. I think it's nice.",
@@ -219,7 +219,7 @@ export const enteria: GutFlora = {
   rarities: [diamond, circle],
 };
 
-export const ferulia: GutFlora = {
+export const ferulia: flora = {
   name: "Feruli",
   image: "flora_2_1",
   description: "A two-toned flora that seems inviting.",
@@ -234,7 +234,7 @@ export const ferulia: GutFlora = {
   rarities: [circle, circle, circle, circle, circle],
 };
 
-export const flora22: GutFlora = {
+export const flora22: flora = {
   name: "??????",
   image: "flora_2_2",
   description: "No data available.",
@@ -249,7 +249,7 @@ export const flora22: GutFlora = {
   rarities: [circle, triangle, triangle, circle, triangle],
 };
 
-export const flora23: GutFlora = {
+export const flora23: flora = {
   name: "??????????",
   image: "flora_2_3",
   description: "No data available.",
@@ -258,7 +258,7 @@ export const flora23: GutFlora = {
   rarities: [circle, circle, circle],
 };
 
-export const flora24: GutFlora = {
+export const flora24: flora = {
   name: "?????????",
   image: "flora_2_4",
   description: "No data available.",
@@ -267,7 +267,7 @@ export const flora24: GutFlora = {
   rarities: [circle, circle, triangle],
 };
 
-export const luciumColi: GutFlora = {
+export const luciumColi: flora = {
   name: "Lucium Coli",
   image: "flora_2_5",
   description: "An incredible flora that spreads its charm wherever it goes.",
@@ -276,7 +276,7 @@ export const luciumColi: GutFlora = {
   rarities: [diamond, circle],
 };
 
-export const luxillium: GutFlora = {
+export const luxillium: flora = {
   name: "Luxillium",
   image: "flora_2_6",
   description: "A contemptuous flora that can't be ignored.",
@@ -285,7 +285,7 @@ export const luxillium: GutFlora = {
   rarities: [circle, circle, triangle],
 };
 
-export const magnilium: GutFlora = {
+export const magnilium: flora = {
   name: "Magnilium",
   image: "flora_2_7",
   description: "I sense great things from this humble flora.",
@@ -294,7 +294,7 @@ export const magnilium: GutFlora = {
   rarities: [circle],
 };
 
-export const flora28: GutFlora = {
+export const flora28: flora = {
   name: "???????????",
   image: "flora_2_8",
   description: "No data available.",
@@ -303,7 +303,7 @@ export const flora28: GutFlora = {
   rarities: [circle, circle, circle],
 };
 
-export const flora29: GutFlora = {
+export const flora29: flora = {
   name: "???????????",
   image: "flora_2_9",
   description: "No data available.",
@@ -312,7 +312,7 @@ export const flora29: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const nasusEnterica: GutFlora = {
+export const nasusEnterica: flora = {
   name: "Nasus Enterica",
   image: "flora_3_0",
   description: "Lots of different shapes going on in here.",
@@ -321,7 +321,7 @@ export const nasusEnterica: GutFlora = {
   rarities: [circle],
 };
 
-export const peptocoli: GutFlora = {
+export const peptocoli: flora = {
   name: "Peptocoli",
   image: "flora_3_1",
   description: "A sensible flora with a pleasing palette.",
@@ -330,7 +330,7 @@ export const peptocoli: GutFlora = {
   rarities: [circle, triangle, triangle],
 };
 
-export const flora31: GutFlora = {
+export const flora31: flora = {
   name: "????????? ????",
   image: "flora_3_2",
   description: "No data available.",
@@ -339,7 +339,7 @@ export const flora31: GutFlora = {
   rarities: [],
 };
 
-export const phenobacti: GutFlora = {
+export const phenobacti: flora = {
   name: "Phenobacti",
   image: "flora_3_3",
   description: "Crystalized flora with a mysterious past.",
@@ -354,7 +354,7 @@ export const phenobacti: GutFlora = {
   rarities: [circle],
 };
 
-export const phriole: GutFlora = {
+export const phriole: flora = {
   name: "Phriole",
   image: "flora_3_4",
   description:
@@ -364,7 +364,7 @@ export const phriole: GutFlora = {
   rarities: [triangle, triangle],
 };
 
-export const planumMirabilis: GutFlora = {
+export const planumMirabilis: flora = {
   name: "Planum Mirabilis",
   image: "flora_3_5",
   description: "Looks like a bunch of worms.",
@@ -373,7 +373,7 @@ export const planumMirabilis: GutFlora = {
   rarities: [triangle, triangle],
 };
 
-export const flora36: GutFlora = {
+export const flora36: flora = {
   name: "???????",
   image: "flora_3_6",
   description: "No data available.",
@@ -382,7 +382,7 @@ export const flora36: GutFlora = {
   rarities: [circle, triangle, circle, circle],
 };
 
-export const proteusIncognia: GutFlora = {
+export const proteusIncognia: flora = {
   name: "Proteus Incognia",
   image: "flora_3_7",
   description: "Aw, who's this lil' guy?",
@@ -397,7 +397,7 @@ export const proteusIncognia: GutFlora = {
   rarities: [circle, circle, triangle, triangle, triangle],
 };
 
-export const flora38: GutFlora = {
+export const flora38: flora = {
   name: "?????????????",
   image: "flora_3_8",
   description: "No data available.",
@@ -406,7 +406,7 @@ export const flora38: GutFlora = {
   rarities: [triangle, circle, circle],
 };
 
-export const protrusia: GutFlora = {
+export const protrusia: flora = {
   name: "Protrusia",
   image: "flora_3_9",
   description: "This flora is a healthy addition to any canine diet.",
@@ -415,7 +415,7 @@ export const protrusia: GutFlora = {
   rarities: [circle, triangle],
 };
 
-export const ratium: GutFlora = {
+export const ratium: flora = {
   name: "Ratium",
   image: "flora_4_0",
   description: "A tidy flora with an honest sensibility.",
@@ -424,7 +424,7 @@ export const ratium: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const scaph: GutFlora = {
+export const scaph: flora = {
   name: "Scaph",
   image: "flora_4_1",
   description:
@@ -434,7 +434,7 @@ export const scaph: GutFlora = {
   rarities: [triangle],
 };
 
-export const flora42: GutFlora = {
+export const flora42: flora = {
   name: "?????????",
   image: "flora_4_2",
   description: "No data available.",
@@ -443,7 +443,7 @@ export const flora42: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const snow: GutFlora = {
+export const snow: flora = {
   name: "Snow",
   image: "flora_4_3",
   description: "It's just snow. Feels like this should've melted.",
@@ -452,7 +452,7 @@ export const snow: GutFlora = {
   rarities: [triangle],
 };
 
-export const flora44: GutFlora = {
+export const flora44: flora = {
   name: "??????????",
   image: "flora_4_4",
   description: "No data available.",
@@ -461,7 +461,7 @@ export const flora44: GutFlora = {
   rarities: [circle, circle, circle, circle],
 };
 
-export const flora45: GutFlora = {
+export const flora45: flora = {
   name: "????????",
   image: "flora_4_5",
   description: "No data available.",
@@ -470,7 +470,7 @@ export const flora45: GutFlora = {
   rarities: [circle, circle],
 };
 
-export const floras: GutFlora[] = [
+export const floras: flora[] = [
   x1042,
   flora01,
   bacillusVitus,
