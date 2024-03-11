@@ -44,6 +44,15 @@ export const wobbledogLeg: Food = {
   name: "Wobbledog Leg",
   image: "wobbledog-leg",
 };
+export const wobbledogTail: Food = {
+  name: "Wobbledog Tail",
+  image: "wobbledog-tail",
+};
+export const wobbleWing: Food = {
+  name: "Wobble Wing",
+  image: "wobble-wing",
+};
+
 export const garlicBread: Food = {
   name: "Garlic Bread",
   image: "garlic-bread",
@@ -93,7 +102,7 @@ export const candyCane: Food = {
   image: "candy-cane",
 };
 
-export const s: Food[] = [
+export const foods: Food[] = [
   unknown,
   alienFruit,
   chip,
