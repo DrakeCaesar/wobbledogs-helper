@@ -10,8 +10,9 @@ interface GutFlora {
 }
 
 const circle = 1;
-const triangle = 3;
-const diamond = 4;
+const triangle = 2;
+const diamond = 3;
+const star = 4;
 
 export const x1042: GutFlora = {
   name: "0x1042",
@@ -117,4 +118,404 @@ export const flora09: GutFlora = {
   rarities: [circle, circle, circle],
 };
 
+export const clisotriumLatriphilius: GutFlora = {
+  name: "Clisotrium Latriphilius",
+  image: "flora_1_0",
+  description:
+    "A beneficial flora often used to help acclimate dogs to cold weather climates.",
+  foods: [food.burrito, food.coconut, food.unknown, food.cheeseBall],
+  effects: [effect.thickBody, effect.shortLegs],
+  rarities: [circle, circle],
+};
 
+export const flora11: GutFlora = {
+  name: "??????????",
+  image: "flora_1_1",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown],
+  rarities: [circle, circle],
+};
+
+export const contrarialius: GutFlora = {
+  name: "Contrarialius",
+  image: "flora_2_2",
+  description: "Sort of hard to pronounce, but that's not really its fault.",
+  foods: [food.coconut, food.unknown, food.unknown, food.unknown],
+  effects: [effect.invertedSnout, effect.wideStance],
+  rarities: [triangle, circle],
+};
+
+export const flora13: GutFlora = {
+  name: "??????????",
+  image: "flora_1_3",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown],
+  rarities: [circle, circle],
+};
+
+export const crysalia: GutFlora = {
+  name: "Crysalia",
+  image: "flora_1_4",
+  description: "A flora found in the cocoon drippings.",
+  foods: [food.unknown, food.emptyCocoon],
+  effects: [effect.unknown, effect.randomMutations],
+  rarities: [star, circle],
+};
+
+export const candidaNeutralia: GutFlora = {
+  name: "Candida Neutralia",
+  image: "flora_1_5",
+  description: "A standard flora found in nearly all dog-based lifeforms.",
+  foods: [],
+  effects: [effect.defaultColoration],
+  rarities: [circle],
+};
+
+export const dirt: GutFlora = {
+  name: "Dirt",
+  image: "flora_1_6",
+  description: "Seriously, it's just dirt.",
+  foods: [food.dirtClump],
+  effects: [effect.brownColoration],
+  rarities: [triangle],
+};
+
+export const dropilia: GutFlora = {
+  name: "Dropilia",
+  image: "flora_1_7",
+  description:
+    "A cluster of goopy organisms that honestly looks kind of gross.",
+  foods: [food.hamSlider, food.moonCheese],
+  effects: [effect.hamLikeBody, effect.droopyFace],
+  rarities: [triangle, circle],
+};
+
+export const ectobacter: GutFlora = {
+  name: "Ectobacter",
+  image: "flora_1_8",
+  description: "It might hurt to step on this flora if it wasn't so small.",
+  foods: [food.dehydratedTreat, food.moonCheese, food.unknown],
+  effects: [effect.skinnyLegs, effect.thinBody, effect.tinyTail],
+  rarities: [triangle, circle, circle],
+};
+
+export const flora19: GutFlora = {
+  name: "????????????",
+  image: "flora_1_9",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown],
+  rarities: [circle, circle, diamond],
+};
+
+export const enteria: GutFlora = {
+  name: "Enteria",
+  image: "flora_2_0",
+  description: "Vaguely paw-shaped. I think it's nice.",
+  foods: [food.unknown, food.fruitCake],
+  effects: [effect.narrowStance, effect.metallicSheen],
+  rarities: [diamond, circle],
+};
+
+export const ferulia: GutFlora = {
+  name: "Feruli",
+  image: "flora_2_1",
+  description: "A two-toned flora that seems inviting.",
+  foods: [food.candyCane],
+  effects: [
+    effect.whiteBody,
+    effect.whiteLegs,
+    effect.redPattern,
+    effect.intensePattern,
+    effect.redNoseEars,
+  ],
+  rarities: [circle, circle, circle, circle, circle],
+};
+
+export const flora22: GutFlora = {
+  name: "??????",
+  image: "flora_2_2",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [
+    effect.unknown,
+    effect.unknown,
+    effect.unknown,
+    effect.unknown,
+    effect.unknown,
+  ],
+  rarities: [circle, triangle, triangle, circle, triangle],
+};
+
+export const flora23: GutFlora = {
+  name: "??????????",
+  image: "flora_2_3",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown],
+  rarities: [circle, circle, circle],
+};
+
+export const flora24: GutFlora = {
+  name: "?????????",
+  image: "flora_2_4",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown],
+  rarities: [circle, circle, triangle],
+};
+
+export const luciumColi: GutFlora = {
+  name: "Lucium Coli",
+  image: "flora_2_5",
+  description: "An incredible flora that spreads its charm wherever it goes.",
+  foods: [food.unknown, food.alienFruit, food.unknown, food.unknown],
+  effects: [effect.thickLegs, effect.glossySheen],
+  rarities: [diamond, circle],
+};
+
+export const luxillium: GutFlora = {
+  name: "Luxillium",
+  image: "flora_2_6",
+  description: "A contemptuous flora that can't be ignored.",
+  foods: [food.fruitCake],
+  effects: [effect.invertedSnout, effect.tinyWings, effect.thickBody],
+  rarities: [circle, circle, triangle],
+};
+
+export const magnilium: GutFlora = {
+  name: "Magnilium",
+  image: "flora_2_7",
+  description: "I sense great things from this humble flora.",
+  foods: [food.lasagna, food.pizzaBagel, food.onionRing],
+  effects: [effect.big],
+  rarities: [circle],
+};
+
+export const flora28: GutFlora = {
+  name: "???????????",
+  image: "flora_2_8",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown],
+  rarities: [circle, circle, circle],
+};
+
+export const flora29: GutFlora = {
+  name: "???????????",
+  image: "flora_2_9",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown],
+  rarities: [circle, circle],
+};
+
+export const nasusEnterica: GutFlora = {
+  name: "Nasus Enterica",
+  image: "flora_3_0",
+  description: "Lots of different shapes going on in here.",
+  foods: [food.garlicBread, food.pizzaBagel, food.unknown, food.cheeseBall],
+  effects: [effect.bigNose],
+  rarities: [circle],
+};
+
+export const peptocoli: GutFlora = {
+  name: "Peptocoli",
+  image: "flora_3_1",
+  description: "A sensible flora with a pleasing palette.",
+  foods: [food.cutFruit, food.onionRing, food.unknown],
+  effects: [effect.shortBody, effect.yellowColoration, effect.tinyWings],
+  rarities: [circle, triangle, triangle],
+};
+
+export const flora31: GutFlora = {
+  name: "????????? ????",
+  image: "flora_3_2",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [],
+  rarities: [],
+};
+
+export const phenobacti: GutFlora = {
+  name: "Phenobacti",
+  image: "flora_3_3",
+  description: "Crystalized flora with a mysterious past.",
+  foods: [
+    food.unknown,
+    food.unknown,
+    food.chickenNugget,
+    food.unknown,
+    food.unknown,
+  ],
+  effects: [effect.small],
+  rarities: [circle],
+};
+
+export const phriole: GutFlora = {
+  name: "Phriole",
+  image: "flora_3_4",
+  description:
+    "A branch-like flora that incidentally mirrors the foods that contain it.",
+  foods: [food.frenchFry, food.unknown],
+  effects: [effect.thinBody, effect.longBody],
+  rarities: [triangle, triangle],
+};
+
+export const planumMirabilis: GutFlora = {
+  name: "Planum Mirabilis",
+  image: "flora_3_5",
+  description: "Looks like a bunch of worms.",
+  foods: [food.pancake, food.moonCheese],
+  effects: [effect.flatBody, effect.wideBody],
+  rarities: [triangle, triangle],
+};
+
+export const flora36: GutFlora = {
+  name: "???????",
+  image: "flora_3_6",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown, effect.unknown],
+  rarities: [circle, triangle, circle, circle],
+};
+
+export const proteusIncognia: GutFlora = {
+  name: "Proteus Incognia",
+  image: "flora_3_7",
+  description: "Aw, who's this lil' guy?",
+  foods: [food.alienFruit],
+  effects: [
+    effect.longEars,
+    effect.tinyNose,
+    effect.greenColoration,
+    effect.purpleBody,
+    effect.orangeNoseEars,
+  ],
+  rarities: [circle, circle, triangle, triangle, triangle],
+};
+
+export const flora38: GutFlora = {
+  name: "?????????????",
+  image: "flora_3_8",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown],
+  rarities: [triangle, circle, circle],
+};
+
+export const protrusia: GutFlora = {
+  name: "Protrusia",
+  image: "flora_3_9",
+  description: "This flora is a healthy addition to any canine diet.",
+  foods: [food.banana, food.candyCane],
+  effects: [effect.longLegs, effect.longBody],
+  rarities: [circle, triangle],
+};
+
+export const ratium: GutFlora = {
+  name: "Ratium",
+  image: "flora_4_0",
+  description: "A tidy flora with an honest sensibility.",
+  foods: [food.honeyComb],
+  effects: [effect.yellowBody, effect.blackPattern],
+  rarities: [circle, circle],
+};
+
+export const scaph: GutFlora = {
+  name: "Scaph",
+  image: "flora_4_1",
+  description:
+    "Commonly found in waste, this flora is unhelpful and potentially dangerous.",
+  foods: [food.halfEatenFood, food.poop],
+  effects: [effect.randomMutations],
+  rarities: [triangle],
+};
+
+export const flora42: GutFlora = {
+  name: "?????????",
+  image: "flora_4_2",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown],
+  rarities: [circle, circle],
+};
+
+export const snow: GutFlora = {
+  name: "Snow",
+  image: "flora_4_3",
+  description: "It's just snow. Feels like this should've melted.",
+  foods: [food.snowball],
+  effects: [effect.whiteColoration],
+  rarities: [triangle],
+};
+
+export const flora44: GutFlora = {
+  name: "??????????",
+  image: "flora_4_4",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown, effect.unknown],
+  rarities: [circle, circle, circle, circle],
+};
+
+export const flora45: GutFlora = {
+  name: "????????",
+  image: "flora_4_5",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown],
+  rarities: [circle, circle],
+};
+
+export const floras: GutFlora[] = [
+  x1042,
+  flora01,
+  bacillusVitus,
+  bactoBacto,
+  bactocalcia,
+  canemLabo,
+  flora06,
+  caseusBacto,
+  caudiCaudi,
+  flora09,
+  clisotriumLatriphilius,
+  flora11,
+  contrarialius,
+  flora13,
+  crysalia,
+  candidaNeutralia,
+  dirt,
+  dropilia,
+  ectobacter,
+  flora19,
+  enteria,
+  ferulia,
+  flora22,
+  flora23,
+  flora24,
+  luciumColi,
+  luxillium,
+  magnilium,
+  flora28,
+  flora29,
+  nasusEnterica,
+  peptocoli,
+  flora31,
+  phenobacti,
+  phriole,
+  planumMirabilis,
+  flora36,
+  proteusIncognia,
+  flora38,
+  protrusia,
+  ratium,
+  scaph,
+  flora42,
+  snow,
+  flora44,
+  flora45,
+];
+export default floras;

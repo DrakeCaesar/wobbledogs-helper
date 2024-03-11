@@ -8,10 +8,6 @@ export const unknown: Food = {
   name: "Unknown",
   image: "unknown",
 };
-export const alienFruit: Food = {
-  name: "Alien Fruit",
-  image: "alien-fruit",
-};
 export const chip: Food = {
   name: "Chip",
   image: "chip",
@@ -101,10 +97,52 @@ export const candyCane: Food = {
   name: "Candy Cane",
   image: "candy-cane",
 };
+export const alienFruit: Food = {
+  name: "Alien Fruit",
+  image: "alien-fruit",
+};
+export const lasagna: Food = {
+  name: "Lasagna",
+  image: "lasagna",
+};
+export const pizzaBagel: Food = {
+  name: "Pizza Bagel",
+  image: "pizza-bagel",
+};
+export const onionRing: Food = {
+  name: "Onion Ring",
+  image: "onion-ring",
+};
+export const chickenNugget: Food = {
+  name: "Chicken Nugget",
+  image: "chicken-nugget",
+};
+export const frenchFry: Food = {
+  name: "French Fry",
+  image: "french-fry",
+};
+export const banana: Food = {
+  name: "Banana",
+  image: "banana",
+};
+export const honeyComb: Food = {
+  name: "Honey Comb",
+  image: "honey-comb",
+};
+export const halfEatenFood: Food = {
+  name: "Half Eaten Food",
+  image: "half-eaten-food",
+};
+export const poop: Food = {
+  name: "Poop",
+  image: "poop",
+};
+export const snowball: Food = {
+  name: "Snowball",
+  image: "snowball",
+};
 
 export const foods: Food[] = [
-  unknown,
-  alienFruit,
   chip,
   nutritionalPellet,
   appleSlice,
@@ -125,4 +163,15 @@ export const foods: Food[] = [
   dehydratedTreat,
   fruitCake,
   candyCane,
+  alienFruit,
+  lasagna,
+  pizzaBagel,
+  onionRing,
+  chickenNugget,
+  frenchFry,
+  banana,
+  honeyComb,
+  halfEatenFood,
+  poop,
+  snowball,
 ];
