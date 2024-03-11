@@ -42,4 +42,4 @@ function displayFloraInfo(floraName: string) {
 // Similar functions can be created for displaying food and effect information
 
 // Example usage
-displayFloraInfo("Some Flora Name");
+displayFloraInfo("dirt");
