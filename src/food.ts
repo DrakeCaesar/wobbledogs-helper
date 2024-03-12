@@ -144,6 +144,10 @@ export const crackedCore: Food = {
   name: "Cracked Core",
   image: "cracked-core",
 };
+export const sampleCup: Food = {
+  name: "Sample Cup",
+  image: "sample-cup",
+};
 
 export const foods: Food[] = [
   chip,
@@ -179,5 +183,7 @@ export const foods: Food[] = [
   halfEatenFood,
   poop,
   snowball,
+  crackedCore,
+  sampleCup,
 ];
 export default foods;

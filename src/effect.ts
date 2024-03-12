@@ -48,6 +48,8 @@ export const orangeNoseEars: Effect = { name: "Orange Nose/Ears" };
 export const yellowBody: Effect = { name: "Yellow Body" };
 export const blackPattern: Effect = { name: "Black Pattern" };
 export const whiteColoration: Effect = { name: "White Coloration" };
+export const yellowNoseEars: Effect = { name: "Yellow Nose/Ears" };
+export const shortSnout: Effect = { name: "Short Snout" };
 
 export const effects: Effect[] = [
   unknown,
@@ -96,5 +98,7 @@ export const effects: Effect[] = [
   yellowBody,
   blackPattern,
   whiteColoration,
+  yellowNoseEars,
+  shortSnout,
 ];
 export default effects;

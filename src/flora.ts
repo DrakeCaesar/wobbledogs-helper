@@ -70,13 +70,7 @@ export const canemLabo: Flora = {
   name: "Canem Labo",
   image: "flora_0_5",
   description: "A flora unique to the Wobbledog species.",
-  foods: [
-    food.wobbledogBody,
-    food.wobbledogHead,
-    food.wobbledogLeg,
-    food.unknown,
-    food.unknown,
-  ],
+  foods: [food.dogBody, food.dogHead, food.dogLeg, food.unknown, food.unknown],
   effects: [effect.randomMutations],
   rarities: [circle],
 };
@@ -373,12 +367,17 @@ export const planumMirabilis: Flora = {
   rarities: [triangle, triangle],
 };
 
-export const flora36: Flora = {
-  name: "???????",
+const flora36: Flora = {
+  name: "Poculli",
   image: "flora_3_6",
-  description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown, effect.unknown, effect.unknown],
+  description: "A healthy flora with much potential.",
+  foods: [food.sampleCup],
+  effects: [
+    effect.yellowNoseEars,
+    effect.shortSnout,
+    effect.intensePattern,
+    effect.randomMutations,
+  ],
   rarities: [circle, triangle, circle, circle],
 };
 
