@@ -186,4 +186,3 @@ export const foods: Food[] = [
   crackedCore,
   sampleCup,
 ];
-export default foods;

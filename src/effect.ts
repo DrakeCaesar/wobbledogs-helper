@@ -101,4 +101,3 @@ export const effects: Effect[] = [
   yellowNoseEars,
   shortSnout,
 ];
-export default effects;

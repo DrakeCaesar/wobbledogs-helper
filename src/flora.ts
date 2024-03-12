@@ -517,4 +517,3 @@ export const floras: Flora[] = [
   flora44,
   flora45,
 ];
-export default floras;
