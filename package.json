@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "generate images": "py src/images.py"
   },
   "keywords": [],
   "author": "",

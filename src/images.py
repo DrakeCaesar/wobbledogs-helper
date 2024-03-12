@@ -120,7 +120,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         # Find and return the corresponding food item name, defaulting to the key if not found
         
         # debug output:
-        print(f"Looking up {key} in the map, found: {food_item_map.get(key, key)}")
+        # print(f"Looking up {key} in the map, found: {food_item_map.get(key, key)}")
         
         return food_item_map.get(key, key)
 

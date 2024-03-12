@@ -28,27 +28,26 @@ export const babyTooth: Food = {
   name: "Baby Tooth",
   image: "baby-tooth",
 };
-export const wobbledogBody: Food = {
-  name: "Wobbledog Body",
-  image: "wobbledog-body",
+export const dogBody: Food = {
+  name: "Dog Body",
+  image: "dog-body",
 };
-export const wobbledogHead: Food = {
-  name: "Wobbledog Head",
-  image: "wobbledog-head",
+export const dogHead: Food = {
+  name: "Dog Head",
+  image: "dog-head",
 };
-export const wobbledogLeg: Food = {
-  name: "Wobbledog Leg",
-  image: "wobbledog-leg",
+export const dogLeg: Food = {
+  name: "Dog Leg",
+  image: "dog-leg",
 };
-export const wobbledogTail: Food = {
-  name: "Wobbledog Tail",
-  image: "wobbledog-tail",
+export const dogTail: Food = {
+  name: "Dog Tail",
+  image: "dog-tail",
 };
-export const wobbleWing: Food = {
-  name: "Wobble Wing",
-  image: "wobble-wing",
+export const dogWing: Food = {
+  name: "Dog Wing",
+  image: "dog-wing",
 };
-
 export const garlicBread: Food = {
   name: "Garlic Bread",
   image: "garlic-bread",
@@ -141,6 +140,10 @@ export const snowball: Food = {
   name: "Snowball",
   image: "snowball",
 };
+export const crackedCore: Food = {
+  name: "Cracked Core",
+  image: "cracked-core",
+};
 
 export const foods: Food[] = [
   chip,
@@ -148,9 +151,11 @@ export const foods: Food[] = [
   appleSlice,
   cutFruit,
   babyTooth,
-  wobbledogBody,
-  wobbledogHead,
-  wobbledogLeg,
+  dogBody,
+  dogHead,
+  dogLeg,
+  dogTail,
+  dogWing,
   garlicBread,
   pancake,
   burrito,
