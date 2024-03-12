@@ -2,12 +2,18 @@ body {
   font-family: "Sniglet", monospace; /* Use the correct font family name as specified by Google Fonts */
 }
 
-#app {
+#flora {
   display: flex;
+  max-width: 100%;
+}
+
+#effects {
+  display: flex;
+  max-width: 100%;
 }
 
 .grid-container {
-  flex: 3;
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
@@ -52,4 +58,62 @@ body {
 
 .grid-item:hover .name {
   display: block;
+}
+
+ul.effects-list {
+  list-style-type: none; /* Hide default markers */
+  padding-left: 0px;
+}
+ul.foods-list {
+  list-style-type: none; /* Hide default markers */
+  padding-left: 0px;
+}
+span.icon {
+  font-family: monospace;
+  font-size: 16px;
+}
+
+li {
+  margin-bottom: 5px; /* Space between items */
+}
+
+li span {
+  font-weight: bold; /* Example styling for the icon */
+  margin-right: 5px; /* Space between the icon and text */
+}
+
+.effect-details div {
+  margin-bottom: 20px;
+}
+
+.effect-details img {
+  margin-top: 5px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#effectSearchContainer {
+  flex: 1;
+  margin-right: 20px; /* Adjust spacing between the list and the grid */
+}
+
+#effectDetails {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(100px, 1fr)
+  ); /* Adjust minmax for your image sizes */
+  gap: 10px;
+}
+
+.effect-details img {
+  width: 100%; /* Ensure images fit their containers */
+  height: auto;
+}
+
+.effect-details {
+  grid-auto-rows: min-content; /* Ensure rows are only as tall as their content */
 }
