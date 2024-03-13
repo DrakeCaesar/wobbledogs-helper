@@ -165,3 +165,37 @@ ul li {
 .icon {
   margin-right: 5px; /* Space between the icon and the effect name */
 }
+
+#effectDetails .grid-item {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  text-align: center;
+}
+
+.flora-effects-list {
+  list-style-type: none;
+  padding-left: 20px; /* Indent effect lists for readability */
+}
+
+.flora-name {
+  font-weight: bold;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+#effectDetails {
+  display: grid;
+  grid-template-columns: repeat(
+    10,
+    1fr
+  ); /* Creates 3 columns; adjust number and size as needed */
+  grid-gap: 20px; /* Adjusts the gap between grid items */
+}

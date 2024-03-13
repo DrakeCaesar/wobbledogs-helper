@@ -107,10 +107,10 @@ function displayRelatedFoods(effectName, container) {
   // Iterate over all flora to find those with the selected effect
   flora.floras.forEach((floraItem) => {
     floraItem.effects.forEach((effect) => {
-      if (effect.name === effectName && effect !== effectData.unknown) {
+      if (effect.name === effectName) {
         // For each flora with the selected effect, process its foods
         floraItem.foods.forEach((food) => {
-          if (!processedFoods.has(food.name) && food !== foodData.unknown) {
+          if (!processedFoods.has(food.name) && food.name !== "Unknown") {
             processedFoods.add(food.name);
             const foodDiv = createElementWithClass("div", "grid-item");
             const img = createImage(
@@ -122,47 +122,53 @@ function displayRelatedFoods(effectName, container) {
               "name",
               food.name,
             );
-            foodDiv.appendChild(img);
-            foodDiv.appendChild(nameOverlay);
+            appendChildren(foodDiv, [img, nameOverlay]);
 
             // Find all flora associated with this food
             const associatedFlora = flora.floras.filter((flora) =>
               flora.foods.some((f) => f.name === food.name),
             );
 
-            // Create a list of associated flora
-            const floraList = createElementWithClass("ul", "flora-list");
-            const effectsSet = new Set(); // To track unique effects
-
+            // For each associated flora, list its effects
             associatedFlora.forEach((assocFlora) => {
-              const floraItemLi = createElementWithClass(
-                "li",
-                "",
-                assocFlora.name,
+              const floraEffectsList = createElementWithClass(
+                "ul",
+                "flora-effects-list",
               );
-              floraList.appendChild(floraItemLi);
-
-              // Aggregate effects from associated flora
-              assocFlora.effects.forEach((effect) => {
-                effectsSet.add(
-                  effect.name +
-                    getRarityIcon(
-                      assocFlora.rarities[assocFlora.effects.indexOf(effect)],
-                    ),
+              assocFlora.effects.forEach((floraEffect) => {
+                const effectLi = createElementWithClass("li", "");
+                const iconSpan = createIconSpan(
+                  getRarityIcon(
+                    assocFlora.rarities[
+                      assocFlora.effects.indexOf(floraEffect)
+                    ],
+                  ),
                 );
+                effectLi.appendChild(iconSpan);
+
+                const effectText = document.createTextNode(floraEffect.name);
+                effectLi.appendChild(effectText);
+
+                // Highlight the searched effect
+                if (floraEffect.name === effectName) {
+                  effectLi.style.color = "yellow";
+                }
+
+                floraEffectsList.appendChild(effectLi);
               });
+
+              // Append the flora name and its effects list to the food item
+              const floraNameWithEffects = createElementWithClass("div", "");
+              const floraName = createElementWithClass(
+                "span",
+                "flora-name",
+                assocFlora.name + ": ",
+              );
+              floraNameWithEffects.appendChild(floraName);
+              floraNameWithEffects.appendChild(floraEffectsList);
+              foodDiv.appendChild(floraNameWithEffects);
             });
 
-            foodDiv.appendChild(floraList);
-
-            // Create a list of unique effects for this food
-            const effectsList = createElementWithClass("ul", "effects-list");
-            effectsSet.forEach((effect) => {
-              const effectLi = createElementWithClass("li", "", effect);
-              effectsList.appendChild(effectLi);
-            });
-
-            foodDiv.appendChild(effectsList);
             container.appendChild(foodDiv);
           }
         });
