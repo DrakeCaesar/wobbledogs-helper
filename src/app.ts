@@ -76,7 +76,7 @@ function populateFloraGrid() {
     );
     const nameOverlay = createElementWithClass("div", "name", floraItem.name);
 
-    appendChildren(gridItem, [img, nameOverlay]);
+    appendChildren(gridItem, [nameOverlay, img]);
     gridContainer.appendChild(gridItem);
 
     gridItem.addEventListener("click", () =>
@@ -165,27 +165,30 @@ function displayEffectDetails(effectName) {
   const effectDetails = document.getElementById("effectDetails");
   effectDetails.innerHTML = ""; // Clear previous details
 
+  // Create separate containers for Flora and Foods
+  const floraContainer = createElementWithClass("div", "flora-container");
+  const foodsContainer = createElementWithClass("div", "foods-container");
+
   // Heading for Flora
-  const floraHeading = createElementWithClass("h2", "", "Flora");
-  effectDetails.appendChild(floraHeading);
+  const floraHeading = createElementWithClass("h2", "flora-heading", "Flora");
+  floraContainer.appendChild(floraHeading);
+  // Heading for Foods
+  const foodsHeading = createElementWithClass("h2", "foods-heading", "Foods");
+  foodsContainer.appendChild(foodsHeading);
 
   // Display related flora by calling displayFloraItem
   flora.floras.forEach((floraItem) => {
-    if (
-      floraItem.effects.some(
-        (effect) => effect.name === effectName && effect.name !== "Unknown",
-      )
-    ) {
-      displayFloraItem(floraItem, effectDetails, effectName);
+    if (floraItem.effects.some((effect) => effect.name === effectName)) {
+      displayFloraItem(floraItem, floraContainer, effectName);
     }
   });
 
-  // Heading for Foods
-  const foodsHeading = createElementWithClass("h2", "", "Foods");
-  effectDetails.appendChild(foodsHeading);
-
   // Display related foods
-  displayRelatedFoods(effectName, effectDetails);
+  displayRelatedFoods(effectName, foodsContainer);
+
+  // Append both containers to the main details container
+  effectDetails.appendChild(floraContainer);
+  effectDetails.appendChild(foodsContainer);
 }
 function displayFloraItem(floraItem, container, highlightEffectName) {
   const floraDiv = createElementWithClass("div", "grid-item");
@@ -194,7 +197,7 @@ function displayFloraItem(floraItem, container, highlightEffectName) {
     floraItem.name,
   );
   const nameOverlay = createElementWithClass("div", "name", floraItem.name);
-  appendChildren(floraDiv, [img, nameOverlay]);
+  appendChildren(floraDiv, [nameOverlay, img]);
 
   // Create a list for effects under each flora item
   const effectsList = createElementWithClass("ul", "effects-list");
@@ -245,7 +248,7 @@ function displayRelatedFoods(effectName, container) {
               "name",
               food.name,
             );
-            appendChildren(foodDiv, [img, nameOverlay]);
+            appendChildren(foodDiv, [nameOverlay, img]);
 
             // Find all flora associated with this food
             const associatedFlora = flora.floras.filter((flora) =>
