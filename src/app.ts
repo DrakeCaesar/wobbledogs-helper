@@ -100,18 +100,75 @@ function displayFloraDetails(floraItem, container) {
   displayEffects(floraItem, container);
 }
 
-function displayRelatedFoods(floraItem, container) {
-  if (floraItem.foods && floraItem.foods.length > 0) {
-    const foodsTitle = createElementWithClass("h3", "", "Related Foods:");
-    const foodsList = createElementWithClass("ul", "foods-list");
-    floraItem.foods.forEach((food) => {
-      const foodItem = createElementWithClass("li", "");
-      const iconSpan = createIconSpan("●");
-      appendChildren(foodItem, [iconSpan, document.createTextNode(food.name)]);
-      foodsList.appendChild(foodItem);
+function displayRelatedFoods(effectName, container) {
+  // Initialize a Set to keep track of processed foods to avoid duplicates
+  const processedFoods = new Set();
+
+  // Iterate over all flora to find those with the selected effect
+  flora.floras.forEach((floraItem) => {
+    floraItem.effects.forEach((effect) => {
+      if (effect.name === effectName) {
+        // For each flora with the selected effect, process its foods
+        floraItem.foods.forEach((food) => {
+          if (!processedFoods.has(food.name)) {
+            processedFoods.add(food.name);
+            const foodDiv = createElementWithClass("div", "grid-item");
+            const img = createImage(
+              `data/food/images/${food.image}.png`,
+              food.name,
+            );
+            const nameOverlay = createElementWithClass(
+              "div",
+              "name",
+              food.name,
+            );
+            foodDiv.appendChild(img);
+            foodDiv.appendChild(nameOverlay);
+
+            // Find all flora associated with this food
+            const associatedFlora = flora.floras.filter((flora) =>
+              flora.foods.some((f) => f.name === food.name),
+            );
+
+            // Create a list of associated flora
+            const floraList = createElementWithClass("ul", "flora-list");
+            const effectsSet = new Set(); // To track unique effects
+
+            associatedFlora.forEach((assocFlora) => {
+              const floraItemLi = createElementWithClass(
+                "li",
+                "",
+                assocFlora.name,
+              );
+              floraList.appendChild(floraItemLi);
+
+              // Aggregate effects from associated flora
+              assocFlora.effects.forEach((effect) => {
+                effectsSet.add(
+                  effect.name +
+                    getRarityIcon(
+                      assocFlora.rarities[assocFlora.effects.indexOf(effect)],
+                    ),
+                );
+              });
+            });
+
+            foodDiv.appendChild(floraList);
+
+            // Create a list of unique effects for this food
+            const effectsList = createElementWithClass("ul", "effects-list");
+            effectsSet.forEach((effect) => {
+              const effectLi = createElementWithClass("li", "", effect);
+              effectsList.appendChild(effectLi);
+            });
+
+            foodDiv.appendChild(effectsList);
+            container.appendChild(foodDiv);
+          }
+        });
+      }
     });
-    appendChildren(container, [foodsTitle, foodsList]);
-  }
+  });
 }
 
 function displayEffects(floraItem, container) {
@@ -179,75 +236,64 @@ function displayEffectDetails(effectName) {
   const effectDetails = document.getElementById("effectDetails");
   effectDetails.innerHTML = ""; // Clear previous details
 
-  // Create and append the 'Flora' heading
-  const floraHeading = document.createElement("h2");
-  floraHeading.textContent = "Flora";
+  // Heading for Flora
+  const floraHeading = createElementWithClass("h2", "", "Flora");
   effectDetails.appendChild(floraHeading);
 
-  // Find and display flora that promote the selected effect
+  // Display related flora by calling displayFloraItem
   flora.floras.forEach((floraItem) => {
     if (floraItem.effects.some((effect) => effect.name === effectName)) {
-      const floraDiv = document.createElement("div");
-      floraDiv.classList.add("grid-item");
-
-      const img = document.createElement("img");
-      img.src = `data/flora/images/${floraItem.image}.png`;
-      img.alt = floraItem.name;
-      floraDiv.appendChild(img);
-
-      const nameOverlay = document.createElement("div");
-      nameOverlay.classList.add("name");
-      nameOverlay.textContent = floraItem.name;
-      floraDiv.appendChild(nameOverlay);
-
-      effectDetails.appendChild(floraDiv);
-
-      // Display effects, highlighting the searched effect
-      floraItem.effects.forEach((effect) => {
-        const effectText = document.createElement("p");
-        effectText.textContent = effect.name;
-        if (effect.name === effectName) {
-          effectText.style.backgroundColor = "yellow";
-        }
-        floraDiv.appendChild(effectText);
-      });
+      displayFloraItem(floraItem, effectDetails, effectName);
     }
   });
 
-  // Create and append the 'Foods' heading
-  const foodsHeading = document.createElement("h2");
-  foodsHeading.textContent = "Foods";
+  // Heading for Foods
+  const foodsHeading = createElementWithClass("h2", "", "Foods");
   effectDetails.appendChild(foodsHeading);
 
-  // Find and display foods related to the flora that promote the selected effect
-  const relatedFoods = [];
-  flora.floras.forEach((floraItem) => {
-    if (floraItem.effects.some((effect) => effect.name === effectName)) {
-      floraItem.foods.forEach((food) => {
-        if (!relatedFoods.some((f) => f.name === food.name)) {
-          relatedFoods.push(food);
-        }
-      });
-    }
-  });
-
-  relatedFoods.forEach((food) => {
-    const foodDiv = document.createElement("div");
-    foodDiv.classList.add("grid-item");
-
-    const img = document.createElement("img");
-    img.src = `data/food/images/${food.image}.png`;
-    img.alt = food.name;
-    foodDiv.appendChild(img);
-
-    const nameOverlay = document.createElement("div");
-    nameOverlay.classList.add("name");
-    nameOverlay.textContent = food.name;
-    foodDiv.appendChild(nameOverlay);
-
-    effectDetails.appendChild(foodDiv);
-  });
+  // Display related foods
+  displayRelatedFoods(effectName, effectDetails);
 }
+function displayFloraItem(floraItem, container, highlightEffectName) {
+  const floraDiv = createElementWithClass("div", "grid-item");
+  const img = createImage(
+    `data/flora/images/${floraItem.image}.png`,
+    floraItem.name,
+  );
+  const nameOverlay = createElementWithClass("div", "name", floraItem.name);
+  appendChildren(floraDiv, [img, nameOverlay]);
+
+  // Create a list for effects under each flora item
+  const effectsList = createElementWithClass("ul", "effects-list");
+  effectsList.style.listStyleType = "none"; // Remove default list styling
+  effectsList.style.paddingLeft = "0"; // Left align the list
+
+  floraItem.effects.forEach((effect) => {
+    const effectItem = createElementWithClass("li", "");
+    const iconSpan = createIconSpan(
+      getRarityIcon(floraItem.rarities[floraItem.effects.indexOf(effect)]),
+    );
+    effectItem.appendChild(iconSpan);
+
+    const effectText = document.createTextNode(effect.name);
+    effectItem.appendChild(effectText);
+
+    // Highlight the searched effect
+    if (effect.name === highlightEffectName) {
+      effectItem.style.color = "yellow";
+    }
+
+    effectsList.appendChild(effectItem);
+  });
+
+  floraDiv.appendChild(effectsList);
+  container.appendChild(floraDiv);
+}
+
+// function displayRelatedFoods(effectName, container) {
+//   // Logic to find and display foods related to the effect
+//   // Similar to the flora display logic, but for foods
+// }
 document.addEventListener("DOMContentLoaded", populateFloraGrid);
 
 const effectSearchInput = document.getElementById(
