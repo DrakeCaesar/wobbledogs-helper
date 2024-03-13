@@ -7,11 +7,6 @@ body {
   max-width: 100%;
 }
 
-#effects {
-  display: flex;
-  max-width: 100%;
-}
-
 .grid-container {
   flex: 1;
   display: grid;
@@ -94,26 +89,33 @@ ul {
   list-style-type: none;
 }
 
+#effects {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px; /* Adjust the space between search results and the grid */
+}
+
 #effectSearchContainer {
-  flex: 1;
-  margin-right: 20px; /* Adjust spacing between the list and the grid */
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+#effectList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 #effectDetails {
-  flex: 2;
+  flex: 3;
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(100px, 1fr)
-  ); /* Adjust minmax for your image sizes */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
 }
 
 .effect-details img {
   width: 100%; /* Ensure images fit their containers */
   height: auto;
-}
-
-.effect-details {
-  grid-auto-rows: min-content; /* Ensure rows are only as tall as their content */
+  object-fit: contain;
 }
