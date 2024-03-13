@@ -107,10 +107,10 @@ function displayRelatedFoods(effectName, container) {
   // Iterate over all flora to find those with the selected effect
   flora.floras.forEach((floraItem) => {
     floraItem.effects.forEach((effect) => {
-      if (effect.name === effectName) {
+      if (effect.name === effectName && effect !== effectData.unknown) {
         // For each flora with the selected effect, process its foods
         floraItem.foods.forEach((food) => {
-          if (!processedFoods.has(food.name)) {
+          if (!processedFoods.has(food.name) && food !== foodData.unknown) {
             processedFoods.add(food.name);
             const foodDiv = createElementWithClass("div", "grid-item");
             const img = createImage(
@@ -242,7 +242,11 @@ function displayEffectDetails(effectName) {
 
   // Display related flora by calling displayFloraItem
   flora.floras.forEach((floraItem) => {
-    if (floraItem.effects.some((effect) => effect.name === effectName)) {
+    if (
+      floraItem.effects.some(
+        (effect) => effect.name === effectName && effect.name !== "Unknown",
+      )
+    ) {
       displayFloraItem(floraItem, effectDetails, effectName);
     }
   });
