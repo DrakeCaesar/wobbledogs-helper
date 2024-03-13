@@ -156,8 +156,10 @@ function populateEffectList() {
 // Function to filter the list of effects based on search input
 function filterEffectList() {
   const searchValue = effectSearchInput.value.toLowerCase();
-  const filteredEffects = effectData.effects.filter((effect) =>
-    effect.name.toLowerCase().includes(searchValue),
+  const filteredEffects = effectData.effects.filter(
+    (effect) =>
+      effect.name.toLowerCase().includes(searchValue) &&
+      effect != effectData.unknown,
   );
 
   effectList.innerHTML = ""; // Clear current list
