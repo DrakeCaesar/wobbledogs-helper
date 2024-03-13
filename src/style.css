@@ -119,3 +119,34 @@ ul {
   height: auto;
   object-fit: contain;
 }
+
+.effect-details .grid-item {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  text-align: center;
+}
+
+.effect-details .grid-item img {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+.effect-details .name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  text-align: left;
+}
