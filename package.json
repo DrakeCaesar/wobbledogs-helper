@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
     "rollup": "^4.13.0",
     "ts-node": "^10.9.2",
