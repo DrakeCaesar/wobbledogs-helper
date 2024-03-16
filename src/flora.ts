@@ -24,12 +24,12 @@ export const x1042: Flora = {
   rarities: [circle, circle],
 };
 
-export const flora01: Flora = {
-  name: "???? ???????",
+export const auroCalphus: Flora = {
+  name: "Auro Calphus",
   image: "flora_0_1",
-  description: "No data available.",
-  foods: [food.unknown, food.unknown],
-  effects: [effect.unknown],
+  description: "A superficially one-note flora with surprising complexity.",
+  foods: [food.candyCorn, food.miniPumpkin],
+  effects: [effect.orangeBody],
   rarities: [circle],
 };
 
@@ -50,8 +50,8 @@ export const bactoBacto: Flora = {
     food.appleSlice,
     food.unknown,
     food.cutFruit,
-    food.unknown,
-    food.unknown,
+    food.candiedApple,
+    food.decorativeCorn,
   ],
   effects: [effect.narrowStance, effect.intensePattern],
   rarities: [diamond, circle],
@@ -70,7 +70,7 @@ export const canemLabo: Flora = {
   name: "Canem Labo",
   image: "flora_0_5",
   description: "A flora unique to the Wobbledog species.",
-  foods: [food.dogBody, food.dogHead, food.dogLeg, food.unknown, food.unknown],
+  foods: [food.dogBody, food.dogHead, food.dogLeg, food.dogTail, food.dogWing],
   effects: [effect.randomMutations],
   rarities: [circle],
 };
@@ -135,7 +135,7 @@ export const contrarialius: Flora = {
   name: "Contrarialius",
   image: "flora_2_2",
   description: "Sort of hard to pronounce, but that's not really its fault.",
-  foods: [food.coconut, food.unknown, food.unknown, food.unknown],
+  foods: [food.coconut, food.unknown, food.decorativeCorn, food.pumpkinPie],
   effects: [effect.invertedSnout, effect.wideStance],
   rarities: [triangle, circle],
 };
@@ -208,12 +208,12 @@ export const enteria: Flora = {
   name: "Enteria",
   image: "flora_2_0",
   description: "Vaguely paw-shaped. I think it's nice.",
-  foods: [food.unknown, food.fruitCake],
+  foods: [food.candiedApple, food.fruitCake],
   effects: [effect.narrowStance, effect.metallicSheen],
   rarities: [diamond, circle],
 };
 
-export const ferulia: Flora = {
+export const feruli: Flora = {
   name: "Feruli",
   image: "flora_2_1",
   description: "A two-toned flora that seems inviting.",
@@ -243,12 +243,12 @@ export const flora22: Flora = {
   rarities: [circle, triangle, triangle, circle, triangle],
 };
 
-export const flora23: Flora = {
-  name: "??????????",
+export const frumentium: Flora = {
+  name: "Frumentium",
   image: "flora_2_3",
   description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown, effect.unknown],
+  foods: [food.candyCorn],
+  effects: [effect.longSnout, effect.whiteNoseEars, effect.yellowLegs],
   rarities: [circle, circle, circle],
 };
 
@@ -265,7 +265,7 @@ export const luciumColi: Flora = {
   name: "Lucium Coli",
   image: "flora_2_5",
   description: "An incredible flora that spreads its charm wherever it goes.",
-  foods: [food.unknown, food.alienFruit, food.unknown, food.unknown],
+  foods: [food.unknown, food.alienFruit, food.deviledEgg, food.pumpkinPie],
   effects: [effect.thickLegs, effect.glossySheen],
   rarities: [diamond, circle],
 };
@@ -297,12 +297,13 @@ export const flora28: Flora = {
   rarities: [circle, circle, circle],
 };
 
-export const flora29: Flora = {
-  name: "???????????",
+export const minimillius: Flora = {
+  name: "Minimillius",
   image: "flora_2_9",
-  description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown],
+  description:
+    "A collection of smaller flora that seem to grow more powerful with age.",
+  foods: [food.boxOfRaisins],
+  effects: [effect.tinyHead, effect.purpleColoration],
   rarities: [circle, circle],
 };
 
@@ -310,7 +311,7 @@ export const nasusEnterica: Flora = {
   name: "Nasus Enterica",
   image: "flora_3_0",
   description: "Lots of different shapes going on in here.",
-  foods: [food.garlicBread, food.pizzaBagel, food.unknown, food.cheeseBall],
+  foods: [food.garlicBread, food.pizzaBagel, food.garlicBulb, food.cheeseBall],
   effects: [effect.bigNose],
   rarities: [circle],
 };
@@ -319,18 +320,27 @@ export const peptocoli: Flora = {
   name: "Peptocoli",
   image: "flora_3_1",
   description: "A sensible flora with a pleasing palette.",
-  foods: [food.cutFruit, food.onionRing, food.unknown],
+  foods: [food.cutFruit, food.onionRing, food.gourd],
   effects: [effect.shortBody, effect.yellowColoration, effect.tinyWings],
   rarities: [circle, triangle, triangle],
 };
 
-export const flora31: Flora = {
+export const flora32: Flora = {
   name: "????????? ????",
   image: "flora_3_2",
   description: "No data available.",
   foods: [food.unknown],
   effects: [],
   rarities: [],
+};
+
+export const flora33: Flora = {
+  name: "?????????",
+  image: "flora_3_3",
+  description: "No data available.",
+  foods: [food.unknown],
+  effects: [effect.unknown, effect.unknown, effect.unknown],
+  rarities: [circle, triangle, circle],
 };
 
 export const phenobacti: Flora = {
@@ -341,8 +351,8 @@ export const phenobacti: Flora = {
     food.unknown,
     food.unknown,
     food.chickenNugget,
-    food.unknown,
-    food.unknown,
+    food.boxOfRaisins,
+    food.deviledEgg,
   ],
   effects: [effect.small],
   rarities: [circle],
@@ -367,7 +377,7 @@ export const planumMirabilis: Flora = {
   rarities: [triangle, triangle],
 };
 
-const flora36: Flora = {
+const flora35: Flora = {
   name: "Poculli",
   image: "flora_3_6",
   description: "A healthy flora with much potential.",
@@ -396,7 +406,7 @@ export const proteusIncognia: Flora = {
   rarities: [circle, circle, triangle, triangle, triangle],
 };
 
-export const flora38: Flora = {
+export const flora39: Flora = {
   name: "?????????????",
   image: "flora_3_8",
   description: "No data available.",
@@ -433,7 +443,7 @@ export const scaph: Flora = {
   rarities: [triangle],
 };
 
-export const flora42: Flora = {
+export const flora43: Flora = {
   name: "?????????",
   image: "flora_4_2",
   description: "No data available.",
@@ -451,7 +461,7 @@ export const snow: Flora = {
   rarities: [triangle],
 };
 
-export const flora44: Flora = {
+export const flora45: Flora = {
   name: "??????????",
   image: "flora_4_4",
   description: "No data available.",
@@ -460,7 +470,7 @@ export const flora44: Flora = {
   rarities: [circle, circle, circle, circle],
 };
 
-export const flora45: Flora = {
+export const flora46: Flora = {
   name: "????????",
   image: "flora_4_5",
   description: "No data available.",
@@ -471,7 +481,7 @@ export const flora45: Flora = {
 
 export const floras: Flora[] = [
   x1042,
-  flora01,
+  auroCalphus,
   bacillusVitus,
   bactoBacto,
   bactocalcia,
@@ -491,29 +501,30 @@ export const floras: Flora[] = [
   ectobacter,
   flora19,
   enteria,
-  ferulia,
+  feruli,
   flora22,
-  flora23,
+  frumentium,
   flora24,
   luciumColi,
   luxillium,
   magnilium,
   flora28,
-  flora29,
+  minimillius,
   nasusEnterica,
   peptocoli,
-  flora31,
+  flora32,
+  flora33,
   phenobacti,
   phriole,
   planumMirabilis,
-  flora36,
+  flora35,
   proteusIncognia,
-  flora38,
+  flora39,
   protrusia,
   ratium,
   scaph,
-  flora42,
+  flora43,
   snow,
-  flora44,
   flora45,
+  flora46,
 ];
