@@ -176,6 +176,10 @@ export const miniPumpkin: Food = {
   name: "Mini Pumpkin",
   image: "mini-pumpkin",
 };
+export const mochiBall: Food = {
+  name: "Mochi Ball",
+  image: "mochi-ball",
+};
 export const moonCheese: Food = {
   name: "Moon Cheese",
   image: "moon-cheese",
@@ -261,6 +265,7 @@ export const foods: Food[] = [
   lunarPie,
   macaron,
   miniPumpkin,
+  mochiBall,
   moonCheese,
   nutritionalPellet,
   onionRing,

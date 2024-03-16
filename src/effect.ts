@@ -63,6 +63,9 @@ export const pinkLegs: Effect = { name: "Pink Legs" };
 export const pinkHead: Effect = { name: "Pink Head" };
 export const blueLegs: Effect = { name: "Blue Legs" };
 export const blueNoseEars: Effect = { name: "Blue Nose/Ears" };
+export const lightGreenLegs: Effect = { name: "Light Green Legs" };
+export const greenBody: Effect = { name: "Green Body" };
+export const darkGreenPattern: Effect = { name: "Dark Green Pattern" };
 
 export const effects: Effect[] = [
   unknown,
@@ -126,4 +129,7 @@ export const effects: Effect[] = [
   pinkHead,
   blueLegs,
   blueNoseEars,
+  lightGreenLegs,
+  greenBody,
+  darkGreenPattern,
 ];

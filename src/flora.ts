@@ -20,7 +20,7 @@ export const x1042: Flora = {
   description:
     "An artificially engineered flora that aims to encourage dog growth.",
   foods: [food.chip, food.nutritionalPellet],
-  effects: [effect.longLegs, effect.longLegs],
+  effects: [effect.longLegs, effect.orangeColoration],
   rarities: [circle, circle],
 };
 
@@ -117,7 +117,7 @@ export const clisotriumLatriphilius: Flora = {
   image: "flora_1_0",
   description:
     "A beneficial flora often used to help acclimate dogs to cold weather climates.",
-  foods: [food.burrito, food.coconut, food.unknown, food.cheeseBall],
+  foods: [food.burrito, food.coconut, food.mochiBall, food.cheeseBall],
   effects: [effect.thickBody, effect.shortLegs],
   rarities: [circle, circle],
 };
@@ -288,12 +288,12 @@ export const magnilium: Flora = {
   rarities: [circle],
 };
 
-export const flora28: Flora = {
-  name: "???????????",
+export const masticillus: Flora = {
+  name: "Masticillus",
   image: "flora_2_8",
-  description: "No data available.",
+  description: "An unimpressive flora that's hard to recommend.",
   foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown, effect.unknown],
+  effects: [effect.lightGreenLegs, effect.greenBody, effect.darkGreenPattern],
   rarities: [circle, circle, circle],
 };
 
@@ -349,7 +349,7 @@ export const phenobacti: Flora = {
   description: "Crystalized flora with a mysterious past.",
   foods: [
     food.unknown,
-    food.unknown,
+    food.mochiBall,
     food.chickenNugget,
     food.boxOfRaisins,
     food.deviledEgg,
@@ -513,7 +513,7 @@ export const floras: Flora[] = [
   luciumColi,
   luxillium,
   magnilium,
-  flora28,
+  masticillus,
   minimillius,
   nasusEnterica,
   peptocoli,
