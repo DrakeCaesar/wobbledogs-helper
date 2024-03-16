@@ -66,6 +66,7 @@ export const blueNoseEars: Effect = { name: "Blue Nose/Ears" };
 export const lightGreenLegs: Effect = { name: "Light Green Legs" };
 export const greenBody: Effect = { name: "Green Body" };
 export const darkGreenPattern: Effect = { name: "Dark Green Pattern" };
+export const blackBody: Effect = { name: "Black Body" };
 
 export const effects: Effect[] = [
   unknown,

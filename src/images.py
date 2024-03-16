@@ -110,6 +110,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-1-7-food-0-0": "ham-slider",
         "flora-1-7-food-0-1": "moon-cheese",
         "flora-1-8-food-0-0": "dehydrated-treat",
+        "flora-1-9-food-0-0": "ectoplasm",
         "flora-2-0-food-0-1": "fruit-cake",
         "flora-2-1-food-0-0": "candy-cane",
         "flora-2-4-food-0-0": "birthday-cake-slice",

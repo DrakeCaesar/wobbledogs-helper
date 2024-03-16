@@ -195,12 +195,12 @@ export const ectobacter: Flora = {
   rarities: [triangle, circle, circle],
 };
 
-export const flora19: Flora = {
-  name: "????????????",
+export const ectoplasmoid: Flora = {
+  name: "Ectoplasmoid",
   image: "flora_1_9",
   description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown],
+  foods: [food.ectoplasm],
+  effects: [effect.blackBody, effect.whiteLegs, effect.randomMutations],
   rarities: [circle, circle, diamond],
 };
 
@@ -504,7 +504,7 @@ export const floras: Flora[] = [
   dirt,
   dropilia,
   ectobacter,
-  flora19,
+  ectoplasmoid,
   enteria,
   feruli,
   flora22,

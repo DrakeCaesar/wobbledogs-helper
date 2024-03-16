@@ -1,6 +1,7 @@
 export interface Food {
   name: string;
   image: string;
+  description?: string;
   source?: string;
 }
 
@@ -71,6 +72,8 @@ export const coconut: Food = {
 export const crackedCore: Food = {
   name: "Cracked Core",
   image: "cracked-core",
+  description:
+    "A dog's core that's been cracked open, revealing a gooey center.",
 };
 export const cutFruit: Food = {
   name: "Cut Fruit",
@@ -91,18 +94,22 @@ export const deviledEgg: Food = {
 export const dirtClump: Food = {
   name: "Dirt Clump",
   image: "dirt-clump",
+  description: "A clump of dirt. Neat!",
 };
 export const dogBody: Food = {
   name: "Dog Body",
   image: "dog-body",
+  description: "Looks like a big piece of candy.",
 };
 export const dogHead: Food = {
   name: "Dog Head",
   image: "dog-head",
+  description: "A lone head. Useless without the rest of the dog.",
 };
 export const dogLeg: Food = {
   name: "Dog Leg",
   image: "dog-leg",
+  description: "A dog's unattached limb.",
 };
 export const dogTail: Food = {
   name: "Dog Tail",
@@ -116,9 +123,15 @@ export const doughnut: Food = {
   name: "Doughnut",
   image: "doughnut",
 };
+export const ectoplasm: Food = {
+  name: "Ectoplasm",
+  image: "ectoplasm",
+  description: "A ghost did this, but I'm not sure how.",
+};
 export const emptyCocoon: Food = {
   name: "Empty Cocoon",
   image: "empty-cocoon",
+  description: "A dog was inside of this.",
 };
 export const fishPellet: Food = {
   name: "Fish Pellet",
@@ -187,6 +200,7 @@ export const moonCheese: Food = {
 export const nutritionalPellet: Food = {
   name: "Nutritional Pellet",
   image: "nutritional-pellet",
+  description: "Dogs love to munch on this nutritional pellet.",
 };
 export const onionRing: Food = {
   name: "Onion Ring",
@@ -203,6 +217,7 @@ export const pizzaBagel: Food = {
 export const poop: Food = {
   name: "Poop",
   image: "poop",
+  description: "What else do you want to know?",
 };
 export const pumpkinPie: Food = {
   name: "Pumpkin Pie",
