@@ -20,9 +20,17 @@ export const banana: Food = {
   name: "Banana",
   image: "banana",
 };
+export const birthdayCakeSlice: Food = {
+  name: "Birthday Cake Slice",
+  image: "birthday-cake-slice",
+};
 export const boxOfRaisins: Food = {
   name: "Box of Raisins",
   image: "box-of-raisins",
+};
+export const burnedDogBiscuit: Food = {
+  name: "Burned Dog Biscuit",
+  image: "burned-dog-biscuit",
 };
 export const burrito: Food = {
   name: "Burrito",
@@ -51,6 +59,10 @@ export const chickenNugget: Food = {
 export const chip: Food = {
   name: "Chip",
   image: "chip",
+};
+export const churro: Food = {
+  name: "Churro",
+  image: "churro",
 };
 export const coconut: Food = {
   name: "Coconut",
@@ -100,9 +112,17 @@ export const dogWing: Food = {
   name: "Dog Wing",
   image: "dog-wing",
 };
+export const doughnut: Food = {
+  name: "Doughnut",
+  image: "doughnut",
+};
 export const emptyCocoon: Food = {
   name: "Empty Cocoon",
   image: "empty-cocoon",
+};
+export const fishPellet: Food = {
+  name: "Fish Pellet",
+  image: "fish-pellet",
 };
 export const frenchFry: Food = {
   name: "French Fry",
@@ -119,6 +139,10 @@ export const garlicBread: Food = {
 export const garlicBulb: Food = {
   name: "Garlic Bulb",
   image: "garlic-bulb",
+};
+export const gelatinMold: Food = {
+  name: "Gelatin Mold",
+  image: "gelatin-mold",
 };
 export const gourd: Food = {
   name: "Gourd",
@@ -139,6 +163,14 @@ export const honeyComb: Food = {
 export const lasagna: Food = {
   name: "Lasagna",
   image: "lasagna",
+};
+export const lunarPie: Food = {
+  name: "Lunar Pie",
+  image: "lunar-pie",
+};
+export const macaron: Food = {
+  name: "Macaron",
+  image: "macaron",
 };
 export const miniPumpkin: Food = {
   name: "Mini Pumpkin",
@@ -190,7 +222,9 @@ export const foods: Food[] = [
   appleSlice,
   babyTooth,
   banana,
+  birthdayCakeSlice,
   boxOfRaisins,
+  burnedDogBiscuit,
   burrito,
   candiedApple,
   candyCane,
@@ -198,6 +232,7 @@ export const foods: Food[] = [
   cheeseBall,
   chickenNugget,
   chip,
+  churro,
   coconut,
   crackedCore,
   cutFruit,
@@ -210,16 +245,21 @@ export const foods: Food[] = [
   dogLeg,
   dogTail,
   dogWing,
+  doughnut,
   emptyCocoon,
+  fishPellet,
   frenchFry,
   fruitCake,
   garlicBread,
   garlicBulb,
+  gelatinMold,
   gourd,
   halfEatenFood,
   hamSlider,
   honeyComb,
   lasagna,
+  lunarPie,
+  macaron,
   miniPumpkin,
   moonCheese,
   nutritionalPellet,

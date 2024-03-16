@@ -95,10 +95,13 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-0-5-food-0-2": "dog-leg",
         "flora-0-5-food-1-0": "dog-tail",
         "flora-0-5-food-1-1": "dog-wing",
+        "flora-0-6-food-0-0": "churro",
+        "flora-0-7-food-0-1": "lunar-pie",
         "flora-0-8-food-0-0": "garlic-bread",
         "flora-0-8-food-0-1": "pancake",
         "flora-1-0-food-0-0": "burrito",
         "flora-1-0-food-0-1": "coconut",
+        "flora-1-1-food-0-0": "fish-pellet",
         "flora-1-0-food-1-0": "cheese-ball",
         "flora-1-2-food-1-0": "pumpkin-pie",
         "flora-1-4-food-0-1": "empty-cocoon",
@@ -108,6 +111,8 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-1-8-food-0-0": "dehydrated-treat",
         "flora-2-0-food-0-1": "fruit-cake",
         "flora-2-1-food-0-0": "candy-cane",
+        "flora-2-4-food-0-0": "birthday-cake-slice",
+        "flora-2-5-food-0-0": "doughnut",
         "flora-2-5-food-0-1": "alien-fruit",
         "flora-2-5-food-0-2": "deviled-egg",
         "flora-2-7-food-0-0": "lasagna",
@@ -116,6 +121,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-2-9-food-0-0": "box-of-raisins",
         "flora-3-0-food-0-2": "garlic-bulb",
         "flora-3-1-food-0-2": "gourd",
+        "flora-3-2-food-0-0": "burnt-dog-biscuit",
         "flora-3-4-food-0-2": "chicken-nugget",
         "flora-3-5-food-0-0": "french-fry",
         "flora-3-7-food-0-0": "sample-cup",
@@ -123,7 +129,9 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-4-1-food-0-0": "honey-comb",
         "flora-4-2-food-0-0": "half-eaten-food",
         "flora-4-2-food-0-1": "poop",
-        "flora-4-4-food-0-0": "snowball"
+        "flora-4-4-food-0-0": "snowball",
+        "flora-4-5-food-0-0": "macaron",
+        "flora-4-6-food-0-0": "gelatin-mold"
     }
 
     def get_food_name(base_name, row, col):

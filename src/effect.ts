@@ -55,6 +55,14 @@ export const whiteNoseEars: Effect = { name: "White Nose/Ears" };
 export const yellowLegs: Effect = { name: "Yellow Legs" };
 export const tinyHead: Effect = { name: "Tiny Head" };
 export const purpleColoration: Effect = { name: "Purple Coloration" };
+export const yellowPattern: Effect = { name: "Yellow Pattern" };
+export const brownBody: Effect = { name: "Brown Body" };
+export const whitePattern: Effect = { name: "White Pattern" };
+export const bigHorns: Effect = { name: "Big Horns" };
+export const pinkLegs: Effect = { name: "Pink Legs" };
+export const pinkHead: Effect = { name: "Pink Head" };
+export const blueLegs: Effect = { name: "Blue Legs" };
+export const blueNoseEars: Effect = { name: "Blue Nose/Ears" };
 
 export const effects: Effect[] = [
   unknown,
@@ -110,4 +118,12 @@ export const effects: Effect[] = [
   yellowLegs,
   tinyHead,
   purpleColoration,
+  yellowPattern,
+  brownBody,
+  whitePattern,
+  bigHorns,
+  pinkLegs,
+  pinkHead,
+  blueLegs,
+  blueNoseEars,
 ];
