@@ -27,7 +27,7 @@ def crop_grid(image_path, origin, cell_width, cell_height, grid_size, output_fol
     # Draw the grid for debug purposes
     for row in range(num_rows):
         for col in range(num_cols):
-            if row == num_rows - 1 and col >= 6:  # Skip the excess cells in the last row
+            if row == num_rows - 1 and col >= 7:  # Skip the excess cells in the last row
                 continue
             x0 = x_origin + col * cell_width
             y0 = y_origin + row * cell_height
