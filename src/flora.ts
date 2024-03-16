@@ -38,7 +38,7 @@ export const bacillusVitus: Flora = {
   image: "flora_0_2",
   description: "A sun-faded flora that looks like it's falling apart from age.",
   foods: [],
-  effects: [effect.unknown],
+  effects: [effect.desaturatedColors],
   rarities: [circle],
 };
 

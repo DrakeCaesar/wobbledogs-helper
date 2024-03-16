@@ -68,6 +68,7 @@ export const greenBody: Effect = { name: "Green Body" };
 export const darkGreenPattern: Effect = { name: "Dark Green Pattern" };
 export const blackBody: Effect = { name: "Black Body" };
 export const bigWings: Effect = { name: "Big Wings" };
+export const desaturatedColors: Effect = { name: "Desaturated Colors" };
 
 export const effects: Effect[] = [
   unknown,
