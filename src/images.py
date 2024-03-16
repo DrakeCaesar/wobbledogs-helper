@@ -86,6 +86,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-0-1-food-0-0": "candy-corn",
         "flora-0-1-food-0-1": "mini-pumpkin",
         "flora-0-3-food-0-0": "apple-slice",
+        "flora-0-3-food-0-1": "cactus-fruit",
         "flora-0-3-food-0-2": "cut-fruit",
         "flora-0-3-food-1-0": "candied-apple",
         "flora-0-3-food-1-1": "decorative-corn",
@@ -187,7 +188,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                     new_filename = f"{food_name}.png"
                     
 
-                    if variance_str < 10 or (2200 < variance_str < 2450):
+                    if variance_str < 10 or (2275 < variance_str < 2450):
                         low_var_path = os.path.join(low_variance_output_folder, filename)
                         crop.save(low_var_path)
                     else:

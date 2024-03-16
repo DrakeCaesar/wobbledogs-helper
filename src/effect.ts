@@ -71,6 +71,7 @@ export const bigWings: Effect = { name: "Big Wings" };
 export const desaturatedColors: Effect = { name: "Desaturated Colors" };
 export const tallBody: Effect = { name: "Tall Body" };
 export const matteFinish: Effect = { name: "Matte Finish" };
+export const pinkColoration: Effect = { name: "Pink Coloration" };
 
 export const effects: Effect[] = [
   unknown,
@@ -139,4 +140,5 @@ export const effects: Effect[] = [
   darkGreenPattern,
   tallBody,
   matteFinish,
+  pinkColoration,
 ];

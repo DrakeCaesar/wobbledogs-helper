@@ -41,6 +41,10 @@ export const burrito: Food = {
   name: "Burrito",
   image: "burrito",
 };
+export const cactusFruit: Food = {
+  name: "Cactus Fruit",
+  image: "cactus-fruit",
+};
 export const candiedApple: Food = {
   name: "Candied Apple",
   image: "candied-apple",
@@ -271,6 +275,7 @@ export const foods: Food[] = [
   boxOfRaisins,
   burnedDogBiscuit,
   burrito,
+  cactusFruit,
   candiedApple,
   candyCane,
   candyCorn,

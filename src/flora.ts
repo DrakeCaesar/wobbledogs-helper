@@ -198,7 +198,7 @@ export const ectobacter: Flora = {
 export const ectoplasmoid: Flora = {
   name: "Ectoplasmoid",
   image: "flora_1_9",
-  description: "No data available.",
+  description: "An intimidating flora from beyond the pale.",
   foods: [food.ectoplasm],
   effects: [effect.blackBody, effect.whiteLegs, effect.randomMutations],
   rarities: [circle, circle, diamond],
@@ -228,17 +228,17 @@ export const feruli: Flora = {
   rarities: [circle, circle, circle, circle, circle],
 };
 
-export const flora22: Flora = {
-  name: "??????",
+export const fructo: Flora = {
+  name: "Fructo",
   image: "flora_2_2",
-  description: "No data available.",
-  foods: [food.unknown],
+  description: "Sweet, sharp, and craveable.",
+  foods: [food.cactusFruit],
   effects: [
-    effect.unknown,
-    effect.unknown,
-    effect.unknown,
-    effect.unknown,
-    effect.unknown,
+    effect.bigHorns,
+    effect.bigWings,
+    effect.bigNose,
+    effect.bigTail,
+    effect.longEars,
   ],
   rarities: [circle, triangle, triangle, circle, triangle],
 };
@@ -246,7 +246,7 @@ export const flora22: Flora = {
 export const frumentium: Flora = {
   name: "Frumentium",
   image: "flora_2_3",
-  description: "No data available.",
+  description: "A powerful flora with an unusually polarizing visage.",
   foods: [food.candyCorn],
   effects: [effect.longSnout, effect.whiteNoseEars, effect.yellowLegs],
   rarities: [circle, circle, circle],
@@ -334,12 +334,12 @@ export const perdictusColi: Flora = {
   rarities: [],
 };
 
-export const flora33: Flora = {
-  name: "?????????",
+export const periculli: Flora = {
+  name: "Periculli",
   image: "flora_3_3",
-  description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown, effect.unknown],
+  description: "Off-putting, and irresistible in equal measure.",
+  foods: [food.insulationTuft],
+  effects: [effect.pinkHead, effect.small, effect.longSnout],
   rarities: [circle, triangle, circle],
 };
 
@@ -507,7 +507,7 @@ export const floras: Flora[] = [
   ectoplasmoid,
   enteria,
   feruli,
-  flora22,
+  fructo,
   frumentium,
   latallius,
   luciumColi,
@@ -518,7 +518,7 @@ export const floras: Flora[] = [
   nasusEnterica,
   peptocoli,
   perdictusColi,
-  flora33,
+  periculli,
   phenobacti,
   phriole,
   planumMirabilis,
