@@ -72,6 +72,7 @@ export const desaturatedColors: Effect = { name: "Desaturated Colors" };
 export const tallBody: Effect = { name: "Tall Body" };
 export const matteFinish: Effect = { name: "Matte Finish" };
 export const pinkColoration: Effect = { name: "Pink Coloration" };
+export const legNumber: Effect = { name: "Leg Number" };
 
 export const effects: Effect[] = [
   unknown,
@@ -141,4 +142,5 @@ export const effects: Effect[] = [
   tallBody,
   matteFinish,
   pinkColoration,
+  legNumber,
 ];

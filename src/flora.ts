@@ -48,7 +48,7 @@ export const bactoBacto: Flora = {
   description: "Double the flora, double the fun.",
   foods: [
     food.appleSlice,
-    food.unknown,
+    food.cactusFruit,
     food.cutFruit,
     food.candiedApple,
     food.decorativeCorn,
@@ -88,7 +88,7 @@ export const caseusBacto: Flora = {
   name: "Caseus Bacto",
   image: "flora_0_7",
   description: "Really wanna chomp down on this thing.",
-  foods: [food.chip, food.unknown],
+  foods: [food.chip, food.lunarPie],
   effects: [effect.longSnout, effect.shortEars, effect.tinyHorns],
   rarities: [circle, circle, circle],
 };
@@ -149,12 +149,12 @@ export const cornucilli: Flora = {
   rarities: [circle, circle],
 };
 
-export const crysalia: Flora = {
-  name: "Crysalia",
+export const crysilia: Flora = {
+  name: "Crysilia",
   image: "flora_1_4",
   description: "A flora found in the cocoon drippings.",
   foods: [food.dudEgg, food.emptyCocoon],
-  effects: [effect.unknown, effect.randomMutations],
+  effects: [effect.legNumber, effect.randomMutations],
   rarities: [star, circle],
 };
 
@@ -292,7 +292,7 @@ export const masticillus: Flora = {
   name: "Masticillus",
   image: "flora_2_8",
   description: "An unimpressive flora that's hard to recommend.",
-  foods: [food.unknown],
+  foods: [food.mochiBall],
   effects: [effect.lightGreenLegs, effect.greenBody, effect.darkGreenPattern],
   rarities: [circle, circle, circle],
 };
@@ -499,7 +499,7 @@ export const floras: Flora[] = [
   flora11,
   contrarialius,
   cornucilli,
-  crysalia,
+  crysilia,
   candidaNeutralia,
   dirt,
   dropilia,
