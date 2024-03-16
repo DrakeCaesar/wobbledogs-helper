@@ -153,7 +153,7 @@ export const crysalia: Flora = {
   name: "Crysalia",
   image: "flora_1_4",
   description: "A flora found in the cocoon drippings.",
-  foods: [food.unknown, food.emptyCocoon],
+  foods: [food.dudEgg, food.emptyCocoon],
   effects: [effect.unknown, effect.randomMutations],
   rarities: [star, circle],
 };
@@ -190,7 +190,7 @@ export const ectobacter: Flora = {
   name: "Ectobacter",
   image: "flora_1_8",
   description: "It might hurt to step on this flora if it wasn't so small.",
-  foods: [food.dehydratedTreat, food.moonCheese, food.unknown],
+  foods: [food.dehydratedTreat, food.moonCheese, food.pizzaTube],
   effects: [effect.skinnyLegs, effect.thinBody, effect.tinyTail],
   rarities: [triangle, circle, circle],
 };

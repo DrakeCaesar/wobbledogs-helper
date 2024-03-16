@@ -127,6 +127,11 @@ export const doughnut: Food = {
   name: "Doughnut",
   image: "doughnut",
 };
+export const dudEgg: Food = {
+  name: "Dud Egg",
+  image: "dud-egg",
+};
+
 export const ectoplasm: Food = {
   name: "Ectoplasm",
   image: "ectoplasm",
@@ -181,6 +186,10 @@ export const honeyComb: Food = {
   name: "Honey Comb",
   image: "honey-comb",
 };
+export const insulationTuft: Food = {
+  name: "Insulation Tuft",
+  image: "insulation-tuft",
+};
 export const lasagna: Food = {
   name: "Lasagna",
   image: "lasagna",
@@ -221,6 +230,10 @@ export const pancake: Food = {
 export const pizzaBagel: Food = {
   name: "Pizza Bagel",
   image: "pizza-bagel",
+};
+export const pizzaTube: Food = {
+  name: "Pizza Tube",
+  image: "pizza-tube",
 };
 export const poop: Food = {
   name: "Poop",
@@ -274,6 +287,7 @@ export const foods: Food[] = [
   dogTail,
   dogWing,
   doughnut,
+  dudEgg,
   emptyCocoon,
   fishPellet,
   fortuneCookie,
@@ -286,6 +300,7 @@ export const foods: Food[] = [
   halfEatenFood,
   hamSlider,
   honeyComb,
+  insulationTuft,
   lasagna,
   lunarPie,
   macaron,
@@ -296,6 +311,7 @@ export const foods: Food[] = [
   onionRing,
   pancake,
   pizzaBagel,
+  pizzaTube,
   poop,
   pumpkinPie,
   sampleCup,
