@@ -140,12 +140,12 @@ export const contrarialius: Flora = {
   rarities: [triangle, circle],
 };
 
-export const flora13: Flora = {
-  name: "??????????",
+export const cornucilli: Flora = {
+  name: "Cornucilli",
   image: "flora_1_3",
-  description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown],
+  description: "Clumpy, but not in a charming way.",
+  foods: [food.fortuneCookie],
+  effects: [effect.shortSnout, effect.bigWings],
   rarities: [circle, circle],
 };
 
@@ -498,7 +498,7 @@ export const floras: Flora[] = [
   clisotriumLatriphilius,
   flora11,
   contrarialius,
-  flora13,
+  cornucilli,
   crysalia,
   candidaNeutralia,
   dirt,

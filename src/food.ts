@@ -141,6 +141,10 @@ export const fishPellet: Food = {
   name: "Fish Pellet",
   image: "fish-pellet",
 };
+export const fortuneCookie: Food = {
+  name: "Fortune Cookie",
+  image: "fortune-cookie",
+};
 export const frenchFry: Food = {
   name: "French Fry",
   image: "french-fry",
@@ -272,6 +276,7 @@ export const foods: Food[] = [
   doughnut,
   emptyCocoon,
   fishPellet,
+  fortuneCookie,
   frenchFry,
   fruitCake,
   garlicBread,
