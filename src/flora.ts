@@ -406,12 +406,12 @@ export const proteusIncognia: Flora = {
   rarities: [circle, circle, triangle, triangle, triangle],
 };
 
-export const flora39: Flora = {
-  name: "?????????????",
+export const protobacillus: Flora = {
+  name: "Protobacillus",
   image: "flora_3_9",
-  description: "No data available.",
-  foods: [food.unknown],
-  effects: [effect.unknown, effect.unknown, effect.unknown],
+  description: "Innovative, but practical and reserved.",
+  foods: [food.pizzaBagel],
+  effects: [effect.tallBody, effect.shortSnout, effect.matteFinish],
   rarities: [triangle, circle, circle],
 };
 
@@ -524,7 +524,7 @@ export const floras: Flora[] = [
   planumMirabilis,
   flora35,
   proteusIncognia,
-  flora39,
+  protobacillus,
   protrusia,
   ratium,
   scaph,
