@@ -69,6 +69,10 @@ export const coconut: Food = {
   name: "Coconut",
   image: "coconut",
 };
+export const corndog: Food = {
+  name: "Corndog",
+  image: "corndog",
+};
 export const crackedCore: Food = {
   name: "Cracked Core",
   image: "cracked-core",
@@ -253,6 +257,7 @@ export const foods: Food[] = [
   chip,
   churro,
   coconut,
+  corndog,
   crackedCore,
   cutFruit,
   decorativeCorn,

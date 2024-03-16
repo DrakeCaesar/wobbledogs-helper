@@ -79,7 +79,7 @@ export const caniHyphacamphi: Flora = {
   name: "Cani Hyphacamphi",
   image: "flora_0_6",
   description: "An unassuming flora with much to prove.",
-  foods: [food.churro, food.unknown],
+  foods: [food.churro, food.corndog],
   effects: [effect.yellowBody, effect.brownBody, effect.longBody],
   rarities: [circle, circle, diamond],
 };
