@@ -348,7 +348,7 @@ export const phenobacti: Flora = {
   image: "flora_3_4",
   description: "Crystalized flora with a mysterious past.",
   foods: [
-    food.unknown,
+    food.antsOnALog,
     food.mochiBall,
     food.chickenNugget,
     food.boxOfRaisins,
@@ -363,7 +363,7 @@ export const phriole: Flora = {
   image: "flora_3_5",
   description:
     "A branch-like flora that incidentally mirrors the foods that contain it.",
-  foods: [food.frenchFry, food.unknown],
+  foods: [food.frenchFry, food.antsOnALog],
   effects: [effect.thinBody, effect.longBody],
   rarities: [triangle, triangle],
 };

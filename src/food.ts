@@ -9,6 +9,10 @@ export const alienFruit: Food = {
   name: "Alien Fruit",
   image: "alien-fruit",
 };
+export const antsOnALog: Food = {
+  name: "Ants on a Log",
+  image: "ants-on-a-log",
+};
 export const appleSlice: Food = {
   name: "Apple Slice",
   image: "apple-slice",
@@ -259,6 +263,7 @@ export const unknown: Food = {
 
 export const foods: Food[] = [
   alienFruit,
+  antsOnALog,
   appleSlice,
   babyTooth,
   banana,
