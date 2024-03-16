@@ -83,12 +83,15 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
     food_item_map = {
         "flora-0-0-food-0-0": "chip",
         "flora-0-0-food-0-1": "nutritional-pellet",
+        "flora-0-1-food-0-0": "candy-corn",
         "flora-0-3-food-0-0": "apple-slice",
         "flora-0-3-food-0-2": "cut-fruit",
         "flora-0-4-food-0-0": "baby-tooth",
         "flora-0-5-food-0-0": "dog-body",
         "flora-0-5-food-0-1": "dog-head",
         "flora-0-5-food-0-2": "dog-leg",
+        "flora-0-5-food-1-0": "dog-tail",
+        "flora-0-5-food-1-1": "dog-wing",
         "flora-0-8-food-0-0": "garlic-bread",
         "flora-0-8-food-0-1": "pancake",
         "flora-1-0-food-0-0": "burrito",
@@ -105,14 +108,15 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-2-7-food-0-0": "lasagna",
         "flora-2-7-food-0-1": "pizza-bagel",
         "flora-2-7-food-0-2": "onion-ring",
-        "flora-3-3-food-0-2": "chicken-nugget",
-        "flora-3-4-food-0-0": "french-fry",
-        "flora-3-6-food-0-0": "sample-cup",
-        "flora-3-9-food-0-0": "banana",
-        "flora-4-0-food-0-0": "honey-comb",
-        "flora-4-1-food-0-0": "half-eaten-food",
-        "flora-4-1-food-0-1": "poop",
-        "flora-4-3-food-0-0": "snowball"
+        "flora-2-9-food-0-0": "raisins",
+        "flora-3-4-food-0-2": "chicken-nugget",
+        "flora-3-5-food-0-0": "french-fry",
+        "flora-3-7-food-0-0": "sample-cup",
+        "flora-4-0-food-0-0": "banana",
+        "flora-4-1-food-0-0": "honey-comb",
+        "flora-4-2-food-0-0": "half-eaten-food",
+        "flora-4-2-food-0-1": "poop",
+        "flora-4-4-food-0-0": "snowball"
     }
 
     def get_food_name(base_name, row, col):
