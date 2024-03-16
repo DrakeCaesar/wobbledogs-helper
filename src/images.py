@@ -84,8 +84,11 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-0-0-food-0-0": "chip",
         "flora-0-0-food-0-1": "nutritional-pellet",
         "flora-0-1-food-0-0": "candy-corn",
+        "flora-0-1-food-0-1": "mini-pumpkin",
         "flora-0-3-food-0-0": "apple-slice",
         "flora-0-3-food-0-2": "cut-fruit",
+        "flora-0-3-food-1-0": "candied-apple",
+        "flora-0-3-food-1-1": "decorative-corn",
         "flora-0-4-food-0-0": "baby-tooth",
         "flora-0-5-food-0-0": "dog-body",
         "flora-0-5-food-0-1": "dog-head",
@@ -97,6 +100,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-1-0-food-0-0": "burrito",
         "flora-1-0-food-0-1": "coconut",
         "flora-1-0-food-1-0": "cheese-ball",
+        "flora-1-2-food-1-0": "pumpkin-pie",
         "flora-1-4-food-0-1": "empty-cocoon",
         "flora-1-6-food-0-0": "dirt-clump",
         "flora-1-7-food-0-0": "ham-slider",
@@ -105,10 +109,13 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
         "flora-2-0-food-0-1": "fruit-cake",
         "flora-2-1-food-0-0": "candy-cane",
         "flora-2-5-food-0-1": "alien-fruit",
+        "flora-2-5-food-0-2": "deviled-egg",
         "flora-2-7-food-0-0": "lasagna",
         "flora-2-7-food-0-1": "pizza-bagel",
         "flora-2-7-food-0-2": "onion-ring",
-        "flora-2-9-food-0-0": "raisins",
+        "flora-2-9-food-0-0": "box-of-raisins",
+        "flora-3-0-food-0-2": "garlic-bulb",
+        "flora-3-1-food-0-2": "gourd",
         "flora-3-4-food-0-2": "chicken-nugget",
         "flora-3-5-food-0-0": "french-fry",
         "flora-3-7-food-0-0": "sample-cup",
@@ -153,7 +160,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                     # Function to check if current variances are within 5 points of any in variances_encountered
                     def is_duplicate(variances, encountered_variances):
                         for encountered in encountered_variances:
-                            if all(abs(v - e) <= 10 for v, e in zip(variances, encountered)):
+                            if all(abs(v - e) <= 15 for v, e in zip(variances, encountered)):
                                 return True
                         return False
                    # sum of variances as numbers
@@ -164,7 +171,7 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                     new_filename = f"{food_name}.png"
                     
 
-                    if variance_str < 10 or (2400 < variance_str < 2500):
+                    if variance_str < 10 or (2200 < variance_str < 2450):
                         low_var_path = os.path.join(low_variance_output_folder, filename)
                         crop.save(low_var_path)
                     else:
@@ -177,12 +184,12 @@ def crop_grid_from_folder(source_folder, output_folder, low_variance_output_fold
                             crop.save(crop_path)
 
 
-
+factor = 1.33  # Factor to convert the coordinates from 1080p to 1440p
 
 directory = os.getcwd()
 flora_image_path = os.path.join(directory, 'data/flora/screenshots/flora-screenshot.png')
 flora_output_folder = os.path.join(directory, 'data/flora/images')
-origin = (237, 325)  # Grid origin coordinates
+origin = (237/factor, 325/factor)  # Grid origin coordinates
 cell_width = 210  # Cell width
 cell_height = 217
   # Cell height
@@ -190,15 +197,15 @@ grid_size = (5, 10)  # Grid size as rows x columns
 crop_size = 210  # Desired square cutout size, adjust based on your needs
 
 # Ensure the parameters are correctly set to your needs before running
-crop_grid(flora_image_path, origin, cell_width, cell_height, grid_size, flora_output_folder, crop_size)
+crop_grid(flora_image_path, origin, cell_width/factor, cell_height/factor, grid_size, flora_output_folder, crop_size/factor)
 
 input_folder = os.path.join(directory, 'data/food/screenshots') 
 output_folder = os.path.join(directory, 'data/food/images') 
 low_variance_output_folder = os.path.join(directory, 'data/food/low_variance_crops')  # Folder for low variance images
 duplicate_folder = os.path.join(directory, 'data/food/duplicates')  # Folder for duplicate images
-origin = (60, 415)  # Adjust as per your layout
+origin = (60/factor, 415/factor)  # Adjust as per your layout
 cell_width = 247  # Cell width
 cell_height = 247  # Cell height
 grid_size = (2, 3)  # Adjust based on your grid (columns, rows)
 crop_size = 235  # Desired crop size, adjust as needed
-crop_grid_from_folder(input_folder, output_folder, low_variance_output_folder, duplicate_folder, origin, cell_width, cell_height, grid_size, crop_size)
+crop_grid_from_folder(input_folder, output_folder, low_variance_output_folder, duplicate_folder, origin, cell_width/factor, cell_height/factor, grid_size, crop_size/factor)
